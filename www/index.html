@@ -18,7 +18,7 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div data-role="page" id="loginPage">
+        <div data-role="page" id="registerPage">
         	<div data-role="header">
         		<h1>REGISTRO</h1>
         	</div>
@@ -27,10 +27,15 @@
         			<fieldset data-role="controlgroup">
         				<legend id="loginForm"></legend>
         				<label>Alumno</label>
-        				<input value="0" type="radio"/>
+        				<input name="radio-choice-1" value="0" type="radio"/>
         				<label>Docente</label>
-        				<input value="0" type="radio"/><br/>
-        				<label></label>
+        				<input name="radio-choice-1" value="0" type="radio"/><br/>
+        				<label>Nombre</label>
+        				<input type=text placeholder="Escribe tu nombre"/><br/>
+        				<label>Apellidos</label>
+        				<input type=text placeholder="Escribe tus apellidos"/><br/>
+        				<label>Contraseña</label>
+        				<input type="password" placeholder="Introduce una contraseña"/>
         			</fieldset>
         		</form>
         	</div>
