@@ -65,6 +65,19 @@ h2 {
     text-align:center;
 }
 
+.boxed {
+	text-align:center;
+	border-radius:25px;
+    padding:20px; 
+    width:10%;
+    height:5%; 
+    margin:auto;
+}
+
+.grey{
+	background:#eee;
+}
+
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
