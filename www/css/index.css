@@ -60,18 +60,6 @@ h1 {
     padding:0px;
     text-align:center;
 }
-a {
-	width:25px;
-	height:28px;
-	padding:1px;
-	border-width:0.75px;
-	border-color:#46AAC5;
-	background-color:#A4EBFF;
-	background-image: linear-gradient(top, #E2F8FF 0%, #A4EBFF 51%);
-	font-family:"Berlin Sans FB";
-	font-size:28px;
-	font-color:#000000;
-}
 
 .event {
     border-radius:4px;
