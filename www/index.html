@@ -69,19 +69,23 @@
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="homePage">
-        	<div data-role="header"></div>
-        	<div data-role="content">
-        		<div>Clases guardadas</div>
+        	<div data-role="header">CLASES GUARDADAS</div>
         		To be generated dynamically depending on the classes...
         		
         		<a href="#seeCalifications" class="ui-btn ui-corner-all">Clase de prueba: calificaciones</a>
+        	<div data-role="header">NUEVA CLASE</div>
+        	<div data-role="content">
+        		<form method="post">
+        		<input type="text" placeholder="Login"/>
+        		<input type ="text" placeholder="Nombre de la clase"
+        		</form>
         		
-        		<div>Nueva clase</div>
+        		<a href="#postNivel1" class="ui-btn ui-corner-all">Empieza a postear</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="seeCalifications">
-        	<div data-role="header"></div>
+        	<div data-role="header">CALIFICACIONES DE CLASE DE PRUEBA</div>
         	<div data-role="content">
         		To be generated dynamically for each class
         		<a href="#homePage" class="ui-btn ui-corner-all">ATRÁS</a>
@@ -100,7 +104,7 @@
         			<input type="text"/><br/>
         			<input type="submit" value="AÑADIR"/>
         		</form>
-        		<a href="postNivel2">Siguiente nivel</a>
+        		<a href="#postNivel2">Siguiente nivel</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
