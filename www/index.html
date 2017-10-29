@@ -27,19 +27,22 @@
         	</div>
         	<div data-role="content">
         		<form action="" method="post">
+					<fieldset data-role="controlgroup">
+						<legend>Tipo de usuario</legend>
+						<input name="radio-choice" id="radio-choice-1" value="alumno" type="radio" />
+						<label for="radio-choice-1">Alumno</label>
+						<input name="radio-choice" id="radio-choice-2" value="docente" type="radio" />
+						<label for="radio-choice-2">Docente</label>
+					</fieldset>
         			<fieldset data-role="controlgroup">
-        				<legend id="loginForm"></legend>
-        				<label>Alumno</label>
-        				<input name="radio-choice-1" value="alumno" type="radio"/>
-        				<label>Docente</label>
-        				<input name="radio-choice-1" value="docente" type="radio"/><br/>
-        				<label>Nombre</label>
-        				<input type=text placeholder="Escribe tu nombre"/><br/>
-        				<label>Apellidos</label>
-        				<input type=text placeholder="Escribe tus apellidos"/><br/>
-        				<label>Contraseña</label>
-        				<input type="password" placeholder="Introduce una contraseña"/><br/>
-        				<input type="submit" value="REGISTRARSE"/>
+						<legend id="loginForm">Datos de usuario</legend>
+						<label>Nombre</label>
+						<input type=text placeholder="Escribe tu nombre"/><br/>
+						<label>Apellidos</label>
+						<input type=text placeholder="Escribe tus apellidos"/><br/>
+						<label>Contraseña</label>
+						<input type="password" placeholder="Introduce una contraseña"/><br/>
+						<input type="submit" value="REGISTRARSE"/>
         			</fieldset>
         		</form>
         		Si ya te has registrado, inicia tu sesión <a href="#loginPage">aquí</a>
