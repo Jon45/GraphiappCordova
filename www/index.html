@@ -38,9 +38,11 @@
         				<label>Apellidos</label>
         				<input type=text placeholder="Escribe tus apellidos"/><br/>
         				<label>Contraseña</label>
-        				<input type="password" placeholder="Introduce una contraseña"/>
+        				<input type="password" placeholder="Introduce una contraseña"/><br/>
+        				<input type="submit" value="REGISTRARSE"/>
         			</fieldset>
         		</form>
+        		Si ya te has registrado, inicia tu sesión <a href="#loginPage">aquí</a>
         	</div>
         	<div data-role="footer"></div>	
         </div>
@@ -60,7 +62,7 @@
         				<input type=text placeholder="ab001"/><br/>
         				<label>Contraseña</label>
         				<input type="password" placeholder="*******"/><br/>
-        				<a href="homePage">Iniciar Sesión</a>
+        				<a href="#homePage" class="ui-btn ui-corner-all">Iniciar Sesión</a>
         			</fieldset>
         		</form>
         	</div>
@@ -68,12 +70,22 @@
         </div>
         <div data-role="page" id="homePage">
         	<div data-role="header"></div>
-        	<div data-role="content"></div>
+        	<div data-role="content">
+        		<div>Clases guardadas</div>
+        		To be generated dynamically depending on the classes...
+        		
+        		<a href="#seeCalifications" class="ui-btn ui-corner-all">Clase de prueba: calificaciones</a>
+        		
+        		<div>Nueva clase</div>
+        	</div>
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="seeCalifications">
         	<div data-role="header"></div>
-        	<div data-role="content"></div>
+        	<div data-role="content">
+        		To be generated dynamically for each class
+        		<a href="#homePage" class="ui-btn ui-corner-all ui-icon-arrow-l">ATRÁS</a>
+        	</div>
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="postNivel1">
