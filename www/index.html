@@ -53,11 +53,14 @@
         	<div data-role="content">
         		<form action="" method="post">
         			<fieldset data-role="controlgroup">
-        				<legend id="loginForm"></legend>
-        				<label>Alumno</label>
-        				<input name="radio-choice-1" value="alumno" type="radio"/>
-        				<label>Docente</label>
-        				<input name="radio-choice-1" value="docente" type="radio"/><br/>
+        				<legend>Tipo de usuario</legend>
+        				<input name="radio-choice" id="radio-choice-1" value="alumno" type="radio" />
+        				<label for="radio-choice-1">Alumno</label>
+        				<input name="radio-choice" id="radio-choice-2" value="docente" type="radio" />
+        				<label for="radio-choice-2">Docente</label>
+        			</fieldset>
+        			<fieldset data-role="controlgroup">
+        				<legend id="loginForm">Datos de usuario</legend>
         				<label>login:	</label>
         				<input type=text placeholder="ab001"/><br/>
         				<label>Contraseña:	</label>
