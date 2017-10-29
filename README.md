@@ -1,6 +1,5 @@
 # GraphiappCordova
 ## Dudas
-- Los radio buttons no se visualizan correctamente. O no se ven, o salen con las etiquetas debajo, en vez de a un lado. ¿Por qué?
 - ¿Se puede hacer override de algunos estilos CSS de JQuery?
 ## Comentarios
 - Entregamos el proyecto conjunto. Están las páginas de ambos
