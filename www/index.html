@@ -58,9 +58,9 @@
         				<input name="radio-choice-1" value="0" type="radio"/>
         				<label>Docente</label>
         				<input name="radio-choice-1" value="0" type="radio"/><br/>
-        				<label>login</label>
+        				<label>login:	</label>
         				<input type=text placeholder="ab001"/><br/>
-        				<label>Contraseña</label>
+        				<label>Contraseña:	</label>
         				<input type="password" placeholder="*******"/><br/>
         				<a href="#homePage" class="ui-btn ui-corner-all">Iniciar Sesión</a>
         			</fieldset>
@@ -69,15 +69,23 @@
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="homePage">
-        	<div data-role="header">CLASES GUARDADAS</div>
+        	<div data-role="header">
+        		<h1>CLASES GUARDADAS</h1>
+        	</div>
+        	<div data-role="content">
         		To be generated dynamically depending on the classes...
         		
         		<a href="#seeCalifications" class="ui-btn ui-corner-all">Clase de prueba: calificaciones</a>
-        	<div data-role="header">NUEVA CLASE</div>
+        	</div>
+        	<div data-role="header">
+        		<h1>NUEVA CLASE</h1>
+        	</div>
         	<div data-role="content">
         		<form method="post">
+        		<label>Login: </label>
         		<input type="text" placeholder="Login"/>
-        		<input type ="text" placeholder="Nombre de la clase"
+        		<label>Nombre de la clase:	</label>
+        		<input type ="text" placeholder="Nombre de la clase"/>
         		</form>
         		
         		<a href="#postNivel1" class="ui-btn ui-corner-all">Empieza a postear</a>
@@ -85,10 +93,12 @@
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="seeCalifications">
-        	<div data-role="header">CALIFICACIONES DE CLASE DE PRUEBA</div>
+        	<div data-role="header">
+        		<h1>CALIFICACIONES DE CLASE DE PRUEBA</h1>
+       		</div>
         	<div data-role="content">
         		To be generated dynamically for each class
-        		<a href="#homePage" class="ui-btn ui-corner-all">ATRÁS</a>
+        		<a href="#homePage" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
@@ -104,7 +114,7 @@
         			<input type="text"/><br/>
         			<input type="submit" value="AÑADIR"/>
         		</form>
-        		<a href="#postNivel2">Siguiente nivel</a>
+        		<a href="#postNivel2" class="ui-btn ui-corner-all">Siguiente nivel</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
@@ -120,12 +130,15 @@
         			<input type="text"/><br/>
         			<input type="submit" value="AÑADIR"/>
         		</form>
-        		<a href="postNivel3">Siguiente nivel</a>
+        		<a href="#postNivel3" class="ui-btn ui-corner-all">Siguiente nivel</a>
+        		<a href="#postNivel1" class="ui-btn ui-corner-all">Nivel anterior</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="postNivel3">
-        	<div data-role="header">NIVEL 3</div>
+        	<div data-role="header">
+        		<h1>NIVEL 3</h1>
+        	</div>
         	<div data-role="content">
         		<form method="post">
         		<label>Palabra correcta:	</label>
@@ -134,11 +147,15 @@
         		<input type="text"/>
         		<!-- Pensar cómo hacer lo de las imágenes y esas cosas... -->
         		</form>
+        		<a href="#postNivel4" class="ui-btn ui-corner-all">Siguiente nivel</a>
+        		<a href="#postNivel2" class="ui-btn ui-corner-all">Nivel anterior</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="postNivel4">
-        	<div data-role="header"></div>
+        	<div data-role="header">
+        		<h1>NIVEL 4</h1>
+        	</div>
         	<div data-role="content"></div>
         	<div data-role="footer"></div>
         </div>
