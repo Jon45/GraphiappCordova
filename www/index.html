@@ -114,7 +114,7 @@
         			<input type="text"/><br/>
         			<input type="submit" value="AÑADIR"/>
         		</form>
-        		<a href="#postNivel2" class="ui-btn ui-corner-all">Siguiente nivel</a>
+        		<a href="#postNivel2" class="ui-btn ui-corner-all" style="width:50%">Siguiente nivel</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
@@ -130,8 +130,8 @@
         			<input type="text"/><br/>
         			<input type="submit" value="AÑADIR"/>
         		</form>
-        		<a href="#postNivel3" class="ui-btn ui-corner-all">Siguiente nivel</a>
-        		<a href="#postNivel1" class="ui-btn ui-corner-all">Nivel anterior</a>
+        		<a href="#postNivel3" class="ui-btn ui-corner-all" style="width:50%">Siguiente nivel</a>
+        		<a href="#postNivel1" class="ui-btn ui-corner-all" style="width:50%">Nivel anterior</a>
         	</div>
         	<div data-role="footer"></div>
         </div>
@@ -192,7 +192,18 @@
         </div>
         <div data-role="page" id="postNivel8">
         	<div data-role="header"></div>
-        	<div data-role="content"></div>
+        	<div data-role="content">
+        		<form>
+        			<label>Introduce la palabra:	</label>
+        			<input type="text" placeholder="Palabra"/><br/>
+        			<label> ¿Qué acentuación tiene?</label>
+        			<input type="radio" name="stress" value="1"/>Aguda
+        			<input type="radio" name="stress" value="2"/>Llana
+        			<input type="radio" name="stress" value="3"/>Esdrújula
+        		</form>
+        		<a href="#postNivel5" class="ui-btn ui-corner-all" style="width:50%">Nivel anterior</a>
+        		<a href="#homePage" class="ui-btn ui-corner-all" style="width:50%">ACABAR</a>
+        	</div>
         	<div data-role="footer"></div>
         </div>
         <div data-role="page" id="userHome">
