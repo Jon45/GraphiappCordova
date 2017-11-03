@@ -48,9 +48,11 @@
 					data: JSON.stringify(data),
 					dataType: "json",
 					contentType: "application/json",
-					success: function (){
-						//If okay go on to next page
-						alert("post_realizado");
+					error: function (result) {
+						if (result.status == 200)
+							{
+								alert("Se ha registrado el nuevo usuario correctamente");
+							}
 					}
 				});
 			}
