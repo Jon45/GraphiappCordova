@@ -6,6 +6,14 @@ var nivel1 = {
 		index : 0
 };
 
+var nivel2 = {
+		correctas : 0,
+		total : 0,
+		palabras : [],
+		puntuacion: 0,
+		index : 0
+};
+
 var appConstants = {
 	localPermanentStorageFolder: "/sdcard/eus.ehu.intel.graphiapp/",
 	localPermanentStorageFolderImg: function () {
@@ -22,6 +30,9 @@ var appConstants = {
 	serverURL : "http://10.109.227.97:8080/GraphiAppServer/",
 	get ejerciciosNivel1URL () {
 	    return this.serverURL + "rest/GraphiApp/getNivel1";
+	},
+	get ejerciciosNivel2URL () {
+	    return this.serverURL + "rest/GraphiApp/getNivel2";
 	},
 	nickname : "jon"
 };

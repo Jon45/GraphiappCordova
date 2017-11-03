@@ -37,3 +37,47 @@
 			alert("Tu puntuacion es de " + nivel1.puntuacion);
 			parent.history.back();
 		};
+		
+		function nivel2_start(pin){
+			nivel2.palabras = [];
+			nivel2.index=0;
+			nivel2.total=0;
+			nivel2.correctas=0;
+			$("#nivel2-letras").empty();
+			$.getJSON(appConstants.ejerciciosNivel2URL,{nickname: appConstants.nickname,pin: pin},function( data ) {
+				nivel2.palabras=data.nivel2;
+				var index=0;
+				nivel2.palabras[0].palabra.split('').forEach(function(letra) {
+					index++;
+					$("#nivel2-letras").append("<button onclick=nivel2_check_letra("+index+")>"+letra+"</button>");
+				});
+			});
+			};
+			
+		function nivel2_check_letra(num_letra){
+			if (num_letra === nivel2.palabras[nivel2.index].tildada)
+				{
+					nivel2.correctas++;
+				}
+			nivel2.total++;
+			nivel2.index++;
+			if (nivel2.index >= nivel2.palabras.length)
+				{
+					nivel2_end();
+				}
+			else
+				{
+					$("#nivel2-letras").empty();
+					var index = 0;
+					nivel2.palabras[nivel2.index].palabra.split('').forEach(function(letra) {
+						index++;
+						$("#nivel2-letras").append("<button onclick=nivel2_check_letra("+index+")>"+letra+"</button>");
+					});
+				}
+		};
+		
+		function nivel2_end(){
+			nivel2.puntuacion=nivel2.correctas/nivel2.total*10;
+			alert("Tu puntuacion es de " + nivel2.puntuacion);
+			parent.history.back();
+		};
