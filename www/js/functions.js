@@ -37,3 +37,22 @@
 			alert("Tu puntuacion es de " + nivel1.puntuacion);
 			parent.history.back();
 		};
+		function regNewUser(){
+			if(document.getElementById("radio-alumno-registro-1").checked) {
+				var data = {nombre: document.getElementById("nUser").value,
+						apellidos: document.getElementById("apUser").value,
+						password: document.getElementById("pswdUser").value};
+				$.post(appConstants.registerUserURL,data,function (){
+					//If okay go on to next page
+				},"json");
+			}
+			else{
+				if(document.getElementById("radio-alumno-registro-2").checked){
+					//Permanent storage
+				}
+				else{
+					alert("Debes marcar el tipo de usuario");
+				}
+			}
+			
+		};

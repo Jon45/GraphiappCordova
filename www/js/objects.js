@@ -23,6 +23,9 @@ var appConstants = {
 	get ejerciciosNivel1URL () {
 	    return this.serverURL + "rest/GraphiApp/getNivel1";
 	},
+	get registerUserURL(){
+		return this.serverURL + "rest/GraphiApp/registerUser";
+	},
 	nickname : "jon"
 };
 

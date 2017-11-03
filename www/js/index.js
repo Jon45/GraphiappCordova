@@ -40,3 +40,6 @@ $("#nivel1-palabra-1").click(function () {
 $("#nivel1-palabra-2").click(function () {
 	nivel1_check_word(2);
 });
+$("#regBtn").click(function (){
+	regNewUser();
+});
