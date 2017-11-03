@@ -42,9 +42,17 @@
 				var data = {nombre: document.getElementById("nUser").value,
 						apellidos: document.getElementById("apUser").value,
 						password: document.getElementById("pswdUser").value};
-				$.post(appConstants.registerUserURL,data,function (){
-					//If okay go on to next page
-				},"json");
+				$.ajax({
+					url : appConstants.registerUserURL,
+					type: "post",
+					data: JSON.stringify(data),
+					dataType: "json",
+					contentType: "application/json",
+					success: function (){
+						//If okay go on to next page
+						alert("post_realizado");
+					}
+				});
 			}
 			else{
 				if(document.getElementById("radio-alumno-registro-2").checked){
