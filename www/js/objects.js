@@ -18,6 +18,12 @@ var appConstants = {
 //	uploadFileURL: "http://158.227.64.57:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile", //EHU PUBLIC
 //	uploadFileURL: "http://10.107.16.86:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile", //EHU WIFI
 //	uploadFileURL: "http://192.168.0.38:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile" //HOME
+	//serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
+	serverURL : "http://10.109.227.97:8080/GraphiAppServer/",
+	get ejerciciosNivel1URL () {
+	    return this.serverURL + "rest/GraphiApp/getNivel1";
+	},
+	nickname : "jon"
 };
 
 var fileUtilities = {
