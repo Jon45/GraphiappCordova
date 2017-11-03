@@ -46,7 +46,6 @@
 					url : appConstants.registerUserURL,
 					type: "post",
 					data: JSON.stringify(data),
-					dataType: "json",
 					contentType: "application/json",
 					dataType:"text",
 					success: function (result)
@@ -65,6 +64,16 @@
 				else{
 					alert("Debes marcar el tipo de usuario");
 				}
+			}
+			
+		};
+		function logUser(){
+			
+			var data={nickname: document.getElementById("nnUser").value,
+					password: document.getElementById("pwUser").value};
+			$.get(appConstants.loginUserURL,data, function(result){
+				
+			});
 			}
 			
 		};

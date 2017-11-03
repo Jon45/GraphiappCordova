@@ -43,3 +43,6 @@ $("#nivel1-palabra-2").click(function () {
 $("#regBtn").click(function (){
 	regNewUser();
 });
+$("#loginBtn").click(function(){
+	logUser();
+});
