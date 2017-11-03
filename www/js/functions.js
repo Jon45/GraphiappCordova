@@ -48,11 +48,13 @@
 					data: JSON.stringify(data),
 					dataType: "json",
 					contentType: "application/json",
+					dataType:"text",
+					success: function (result)
+					{
+						alert("Se ha registrado el nuevo usuario correctamente");
+					},
 					error: function (result) {
-						if (result.status == 200)
-							{
-								alert("Se ha registrado el nuevo usuario correctamente");
-							}
+						alert("No se ha podido registrar al nuevo usuario correctamente");
 					}
 				});
 			}
