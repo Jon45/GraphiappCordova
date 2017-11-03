@@ -21,14 +21,22 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
     }
 };
 
 app.initialize();
+
+$(document).on("pagecontainershow", function (event,ui) {
+	pageId = $('body').pagecontainer('getActivePage').prop('id');
+})
+
+$("#botonNivel1").click(function () {
+	nivel1_start();
+});
+$("#nivel1-palabra-1").click(function () {
+	nivel1_check_word(1);
+});
+$("#nivel1-palabra-2").click(function () {
+	nivel1_check_word(2);
+});

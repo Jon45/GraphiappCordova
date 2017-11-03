@@ -13,7 +13,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="media-src 'self' http://192.168.0.19:8080;
+        													connect-src 'self' http://192.168.0.19:8080 'unsafe-inline' 'unsafe-eval';"/>        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
@@ -278,7 +279,7 @@
 			</div>
 			<div data-role="content">
 				<div data-role="controlgroup" data-type="horizontal">
-					<a href="#nivel1" class="ui-btn ui-corner-all">NIVEL1</a>
+					<a href="#nivel1" id="botonNivel1" class="ui-btn ui-corner-all">NIVEL1</a>
 					<a href="#nivel2" class="ui-btn ui-corner-all">NIVEL2</a>
 					<a href="#nivel3" class="ui-btn ui-corner-all">NIVEL3</a>
 				</div>
@@ -296,9 +297,8 @@
 			<div data-role="content">
 				<h2>Escoge la palabra correcta</h2>
 				<div data-role="controlgroup" id="buttons-2">
-					<button class="ui-btn ui-corner-all">Palabra1</button>
-					<button class="ui-btn ui-corner-all">Palabra2</button>
-					<!-- Cambiar el contenido de los botones con javaScript más adelante. -->
+					<button id="nivel1-palabra-1" class="ui-btn ui-corner-all" disabled></button>
+					<button id="nivel1-palabra-2" class="ui-btn ui-corner-all" disabled></button>
 				</div>
 			</div>
 		</div>
@@ -429,6 +429,9 @@
 			</div>
 		</div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/appConstants.js"></script>
+        <script type="text/javascript" src="js/objects.js"></script>
+         <script type="text/javascript" src="js/functions.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
