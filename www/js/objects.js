@@ -26,6 +26,27 @@ var appConstants = {
 	get registerUserURL(){
 		return this.serverURL + "rest/GraphiApp/registerUser";
 	},
+	get loginUserURL(){
+		return this.serverURL + "rest/GraphiApp/loginUser";
+	},
+	get postNivel1URL(){
+		return this.serverURL + "rest/GraphiApp/postNivel1";
+	},
+	get postNivel2URL(){
+		return this.serverURL + "rest/GraphiApp/postNivel2";
+	},
+	get getResultsURL(){
+		return this.serverURL + "rest/GraphiApp/getResults";
+	},
+	get uploadFileURL(){
+		return this.serverURL + "rest/GraphiApp/uploadFile";
+	},
+	get ejerciciosNivel2URL(){
+		return this.serverURL + "rest/GraphiApp/getNivel2";
+	},
+	get postResultURL(){
+		return this.serverURL + "rest/GraphiApp/postResult";
+	},
 	nickname : "jon"
 };
 
