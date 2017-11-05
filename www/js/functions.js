@@ -171,3 +171,15 @@
 			audio.doStartRecord();
 			$("#audioN2S").removeClass("ui-disabled");
 		};
+		function stopAudioRecord(){
+			$("#audioN2R").blur();
+			var fileFolder = appConstants.localPermanentStorageFolderAudio();
+			var fileName = document.getElementById("palabraTilde").value + ".3gp";
+			audio.doStopRecordAsync(fileFolder, fileName,
+					function(){
+						$("#audioN2S").blur();
+						$("#audioN2S").addClass("ui-disabled");
+						$("#audioN2R").removeClass("ui-disabled");
+					}
+			);
+		};

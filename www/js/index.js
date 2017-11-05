@@ -61,6 +61,9 @@ $("#foto_perfil").click(function()
 $("#pn3Btn").click(function(){
 	addN3();//Por definir
 });
-$("#btnSubmit2").click(function(){
+$("#audioN2R").click(function(){
 	startAudioRecord();
+});
+$("#audioN2S").click(function(){
+	stopAudioRecord();
 });
