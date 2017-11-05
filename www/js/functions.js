@@ -73,17 +73,27 @@
 					password: document.getElementById("pwUser").value};
 			$.get(appConstants.loginUserURL,data, function(result){
 				if(document.getElementById("radio-alumno-login-1").checked){
-					location.href="#userHome";
+					if(result=="0-Alumno"){
+						location.href="#userHome";
+					}
+					else{
+						alert("Tipo de usuario incorrecto");
+					}
+					
 				}
 				else{
 					if(document.getElementById("radio-alumno-login-2").checked){
-						location.href="#homePage";
+						if(result=="0-Docente"){
+							location.href="#homePage";
+						}
+						else{
+							alert("Tipo de usuario incorrecto");
+						}
+						
 					}
 					else{
 						alert("Debes marcar el tipo de usuario");
 					}
 				}
-			}, "text");
-			
-			
+			}, "text");	
 		};
