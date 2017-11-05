@@ -47,7 +47,13 @@ $("#regBtn").click(function (){
 $("#loginBtn").click(function(){
 	logUser();
 });
+
 $("#foto_perfil").click(function()
 {
 	modificar_foto_perfil();
 });
+
+$("#pn3Btn").click(function(){
+	addN3();
+});
+
