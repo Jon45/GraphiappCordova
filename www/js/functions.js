@@ -67,6 +67,7 @@
 			}
 			
 		};
+
 		function logUser(){
 			
 			var data={nickname: document.getElementById("nnUser").value,
@@ -74,6 +75,28 @@
 			$.get(appConstants.loginUserURL,data, function(result){
 				
 			});
-			}
-			
 		};
+
+		function modificar_foto_perfil(){
+			navigator.device.capture.captureImage(function(fotos){
+				window.resolveLocalFileSystemURL(fotos[0].fullPath,
+						function gotFile(fileEntry)
+						{
+								window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory,
+								function(dirEntry)
+								{
+									dirEntry.getDirectory("img", {create: true, exclusive: false},
+									function(dirEntry){
+										fileEntry.copyTo(dirEntry,"profile_photo.jpg",
+										function onSuccess()
+										{
+											$("#foto_perfil").attr("src",cordova.file.externalDataDirectory + "img/profile_photo.jpg?random="+new Date().getTime());
+										});
+									});
+								});
+						}
+			)},
+			function(){
+				alert("Se ha producido un error. No se puede sacar la foto");
+			})
+		}
