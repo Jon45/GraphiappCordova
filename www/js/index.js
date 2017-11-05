@@ -59,5 +59,8 @@ $("#foto_perfil").click(function()
 });
 
 $("#pn3Btn").click(function(){
-	addN3();
+	addN3();//Por definir
+});
+$("#btnSubmit2").click(function(){
+	startAudioRecord();
 });
