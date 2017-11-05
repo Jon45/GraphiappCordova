@@ -17,6 +17,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        $("#foto_perfil").attr("src",cordova.file.externalDataDirectory + "img/profile_photo.jpg");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -46,6 +47,13 @@ $("#regBtn").click(function (){
 $("#loginBtn").click(function(){
 	logUser();
 });
+
+$("#foto_perfil").click(function()
+{
+	modificar_foto_perfil();
+});
+
 $("#pn3Btn").click(function(){
 	addN3();
 });
+
