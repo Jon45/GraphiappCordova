@@ -166,3 +166,8 @@
 				alert("Se ha producido un error. No se puede sacar la foto");
 			})
 		};
+		function startAudioRecord(){
+			$("#audioN2R").addClass("ui-disabled");
+			audio.doStartRecord();
+			$("#audioN2S").removeClass("ui-disabled");
+		};
