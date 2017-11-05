@@ -46,3 +46,6 @@ $("#regBtn").click(function (){
 $("#loginBtn").click(function(){
 	logUser();
 });
+$("#pn3Btn").click(function(){
+	addN3();
+});

@@ -72,8 +72,18 @@
 			var data={nickname: document.getElementById("nnUser").value,
 					password: document.getElementById("pwUser").value};
 			$.get(appConstants.loginUserURL,data, function(result){
-				
-			});
-			}
+				if(document.getElementById("radio-alumno-login-1").checked){
+					location.href="#userHome";
+				}
+				else{
+					if(document.getElementById("radio-alumno-login-2").checked){
+						location.href="#homePage";
+					}
+					else{
+						alert("Debes marcar el tipo de usuario");
+					}
+				}
+			}, "text");
+			
 			
 		};
