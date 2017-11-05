@@ -27,12 +27,37 @@ var appConstants = {
 //	uploadFileURL: "http://10.107.16.86:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile", //EHU WIFI
 //	uploadFileURL: "http://192.168.0.38:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile" //HOME
 	//serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
-	serverURL : "http://10.109.227.97:8080/GraphiAppServer/",
+	serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
 	get ejerciciosNivel1URL () {
 	    return this.serverURL + "rest/GraphiApp/getNivel1";
 	},
+
 	get ejerciciosNivel2URL () {
 	    return this.serverURL + "rest/GraphiApp/getNivel2";
+	},
+	get registerUserURL(){
+		return this.serverURL + "rest/GraphiApp/registerUser";
+	},
+	get loginUserURL(){
+		return this.serverURL + "rest/GraphiApp/loginUser";
+	},
+	get postNivel1URL(){
+		return this.serverURL + "rest/GraphiApp/postNivel1";
+	},
+	get postNivel2URL(){
+		return this.serverURL + "rest/GraphiApp/postNivel2";
+	},
+	get getResultsURL(){
+		return this.serverURL + "rest/GraphiApp/getResults";
+	},
+	get uploadFileURL(){
+		return this.serverURL + "rest/GraphiApp/uploadFile";
+	},
+	get ejerciciosNivel2URL(){
+		return this.serverURL + "rest/GraphiApp/getNivel2";
+	},
+	get postResultURL(){
+		return this.serverURL + "rest/GraphiApp/postResult";
 	},
 	nickname : "jon"
 };

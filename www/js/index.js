@@ -17,6 +17,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        $("#foto_perfil").attr("src",cordova.file.externalDataDirectory + "img/profile_photo.jpg");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -40,6 +41,23 @@ $("#nivel1-palabra-1").click(function () {
 $("#nivel1-palabra-2").click(function () {
 	nivel1_check_word(2);
 });
+
 $("#botonNivel2").click(function () {
 	nivel2_start();
+});
+
+$("#regBtn").click(function (){
+	regNewUser();
+});
+$("#loginBtn").click(function(){
+	logUser();
+});
+
+$("#foto_perfil").click(function()
+{
+	modificar_foto_perfil();
+});
+
+$("#pn3Btn").click(function(){
+	addN3();
 });

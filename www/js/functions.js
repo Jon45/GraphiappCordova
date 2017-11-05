@@ -81,3 +81,88 @@
 			alert("Tu puntuacion es de " + nivel2.puntuacion);
 			parent.history.back();
 		};
+
+		function regNewUser(){
+			if(document.getElementById("radio-alumno-registro-1").checked) {
+				var data = {nombre: document.getElementById("nUser").value,
+						apellidos: document.getElementById("apUser").value,
+						password: document.getElementById("pswdUser").value};
+				$.ajax({
+					url : appConstants.registerUserURL,
+					type: "post",
+					data: JSON.stringify(data),
+					contentType: "application/json",
+					dataType:"text",
+					success: function (result)
+					{
+						alert("Se ha registrado el nuevo usuario correctamente");
+					},
+					error: function (result) {
+						alert("No se ha podido registrar al nuevo usuario correctamente");
+					}
+				});
+			}
+			else{
+				if(document.getElementById("radio-alumno-registro-2").checked){
+					//Permanent storage
+				}
+				else{
+					alert("Debes marcar el tipo de usuario");
+				}
+			}
+			
+		};
+
+		function logUser(){
+			
+			var data={nickname: document.getElementById("nnUser").value,
+					password: document.getElementById("pwUser").value};
+			$.get(appConstants.loginUserURL,data, function(result){
+				if(document.getElementById("radio-alumno-login-1").checked){
+					if(result=="0-Alumno"){
+						location.href="#userHome";
+					}
+					else{
+						alert("Tipo de usuario incorrecto");
+					}
+				}
+				else{
+					if(document.getElementById("radio-alumno-login-2").checked){
+						if(result=="0-Docente"){
+							location.href="#homePage";
+						}
+						else{
+							alert("Tipo de usuario incorrecto");
+						}	
+					}
+					else{
+						alert("Debes marcar el tipo de usuario");
+					}
+				}
+
+			}, "text");	
+		};
+
+		function modificar_foto_perfil(){
+			navigator.device.capture.captureImage(function(fotos){
+				window.resolveLocalFileSystemURL(fotos[0].fullPath,
+						function gotFile(fileEntry)
+						{
+								window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory,
+								function(dirEntry)
+								{
+									dirEntry.getDirectory("img", {create: true, exclusive: false},
+									function(dirEntry){
+										fileEntry.copyTo(dirEntry,"profile_photo.jpg",
+										function onSuccess()
+										{
+											$("#foto_perfil").attr("src",cordova.file.externalDataDirectory + "img/profile_photo.jpg?random="+new Date().getTime());
+										});
+									});
+								});
+						}
+			)},
+			function(){
+				alert("Se ha producido un error. No se puede sacar la foto");
+			})
+		};

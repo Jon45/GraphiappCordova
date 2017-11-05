@@ -28,7 +28,7 @@
         		<h1>REGISTRO</h1>
         	</div>
         	<div data-role="content">
-        		<form action="" method="post">
+        		<form>
 					<fieldset data-role="controlgroup">
 						<legend>Tipo de usuario</legend>
 						<input name="radio-alumno-registro" id="radio-alumno-registro-1" value="alumno" type="radio" />
@@ -39,13 +39,14 @@
         			<fieldset data-role="controlgroup">
 						<legend id="loginForm">Datos de usuario</legend>
 						<label>Nombre</label>
-						<input type=text placeholder="Escribe tu nombre"/><br/>
+						<input id="nUser" type=text placeholder="Escribe tu nombre"/><br/>
 						<label>Apellidos</label>
-						<input type=text placeholder="Escribe tus apellidos"/><br/>
+						<input id="apUser" type=text placeholder="Escribe tus apellidos"/><br/>
 						<label>Contraseña</label>
-						<input type="password" placeholder="Introduce una contraseña"/><br/>
-						<input type="submit" value="REGISTRARSE"/>
+						<input id="pswdUser" type="password" placeholder="Introduce una contraseña"/><br/>
+						
         			</fieldset>
+        			<a id="regBtn" class="ui-btn ui-corner-all">REGISTRARSE</a>
         		</form>
         		Si ya te has registrado, inicia tu sesión <a href="#loginPage">aquí</a>
         	</div>
@@ -58,13 +59,19 @@
         	<div data-role="content">
         		<form action="" method="post">
         			<fieldset data-role="controlgroup">
+						<legend>Tipo de usuario</legend>
+						<input name="radio-alumno-login" id="radio-alumno-login-1" value="alumno" type="radio" />
+						<label for="radio-alumno-login-1">Alumno</label>
+						<input name="radio-alumno-login" id="radio-alumno-login-2" value="docente" type="radio" />
+						<label for="radio-alumno-login-2">Docente</label>
+					</fieldset>
+        			<fieldset data-role="controlgroup">
         				<legend id="loginForm">Datos de usuario</legend>
         				<label>login:	</label>
-        				<input type=text placeholder="ab001"/><br/>
+        				<input id="nnUser" type=text placeholder="ab001"/><br/>
         				<label>Contraseña:	</label>
-        				<input type="password" placeholder="*******"/><br/>
-        				<a href="#userHome" class="ui-btn ui-corner-all">Iniciar Sesión (como alumno)</a>
-        				<a href="#homePage" class="ui-btn ui-corner-all">Iniciar Sesión (como profesor)</a>
+        				<input id="pwUser" type="password" placeholder="*******"/><br/>
+        				<a href="" id="loginBtn" class="ui-btn ui-corner-all">Iniciar Sesión</a>
         			</fieldset>
         		</form>
         	</div>
@@ -84,8 +91,6 @@
         	</div>
         	<div data-role="content">
         		<form method="post">
-        		<label>Login: </label>
-        		<input type="text" placeholder="Login"/>
         		<label>Nombre de la clase:	</label>
         		<input type ="text" placeholder="Nombre de la clase"/>
         		</form>
@@ -153,8 +158,11 @@
         		<input type="text"/><br/>
         		<label>Palabra incorrecta: </label>
         		<input type="text"/>
-        		<input type="submit" value="AÑADIR"/>
+        		<input type="hidden" value="img" name="filetype"/>
+        		<input type="file" name="file" accept="image/*"/>
+        		
         		<!-- Pensar cómo hacer lo de las imágenes y esas cosas... -->
+        		<a href="" id="pn3Btn" class="ui-btn ui-corner-all">AÑADIR</a>
         		</form>
         		<div data-role="navbar">
         			<ul>
@@ -396,7 +404,7 @@
 		</div>
 		<div data-role="page" id="perfil">
 			<div data-role="header">
-				<img src="img/test.jpg" style="height:64px; width:64px; display:block; margin: auto"/>
+				<img id="foto_perfil" style="height:64px; width:64px; display:block; margin: auto"/>
 				<h1>ab001</h1>
 			</div>
 			<div data-role="content">
