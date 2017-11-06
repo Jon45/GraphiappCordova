@@ -67,3 +67,6 @@ $("#audioN2R").click(function(){
 $("#audioN2S").click(function(){
 	stopAudioRecord();
 });
+$("#btnSubmit2").click(function(){
+	addN2();
+});

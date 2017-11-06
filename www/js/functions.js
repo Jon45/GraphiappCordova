@@ -121,6 +121,7 @@
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
 						location.href="#userHome";
+						appConstants.nickname = document.getElementById("nnUser").value;
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -130,6 +131,7 @@
 					if(document.getElementById("radio-alumno-login-2").checked){
 						if(result=="0-Docente"){
 							location.href="#homePage";
+							appConstants.nickname = document.getElementById("nnUser").value;
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
@@ -182,4 +184,40 @@
 						$("#audioN2R").removeClass("ui-disabled");
 					}
 			);
+		};
+		function addN2(){
+			//Parte de subir el audio
+			var urlLocal = appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
+			var uploadFile = true;
+			if(navigator.connection.type != Connection.WIFI){
+				uploadFile=confirm("La descarga puede generar gran tráfico de datos");
+			}
+			
+			if(uploadFile==true){
+				fileUtilities.uploadFileAsync(urlLocal, "audio", appConstants.uploadFileURL,
+						function(){
+							var remoteURL = appConstants.serverURL + "audio/" + document.getElementById("palabraTilde").value + ".3gp";
+							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value)},
+									  login: appConstants.nickname,
+									  url: remoteURL};
+							$.ajax({
+								url : appConstants.postNivel2URL,
+								type: "post",
+								data: JSON.stringify(data),
+								contentType: "application/json",
+								dataType:"text",
+								success: function (result)
+								{
+									alert("Añadido correctamente");
+								},
+								error: function (result) {
+									alert("No se ha podido añadir correctamente");
+								}
+							});
+						},
+						function(){
+							alert("No se ha podido subir el audio");
+						});
+			}
+			
 		};
