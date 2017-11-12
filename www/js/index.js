@@ -84,3 +84,6 @@ $("#audioN2S").click(function(){
 $("#btnSubmit2").click(function(){
 	addN2();
 });
+$("#classBegin").click(function(){
+	addClass();
+});

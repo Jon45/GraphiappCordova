@@ -208,6 +208,32 @@
 
 			}, "text");	
 		};
+		
+		function addClass(){
+			var d = new Date(); //Vamos a configurar la fecha para metérsela a la clase
+			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
+			var fechastring = fecha.join("");
+			var fechaint = parseInt(fechastring);
+			
+			var data= {fecha: fechaint,
+					tematica: document.getElementById("classTheme").value,
+					loginDocente: sessionConstants.nickname};
+			$.ajax({
+				url: appConstants.registerClassURL(),
+				type: "post",
+				data: JSON.stringify(data),
+				contentType: "application/json",
+				dataType:"text",
+				success: function(result) {
+					sessionConstants.idClase = result;
+					location.href="#postNivel1";
+				},
+				error: function(result){
+					alert("no se pudo registrar la clase");
+				}
+			});
+			
+		};
 
 		function modificar_foto_perfil(){
 			navigator.device.capture.captureImage(function(fotos){
