@@ -5,7 +5,7 @@
 			nivel1.index=0;
 			nivel1.total=0;
 			nivel1.correctas=0;
-			$.getJSON(appConstants.ejerciciosNivel1URL,{nickname: appConstants.nickname,pin: pin},function( data ) {
+			$.getJSON(appConstants.ejerciciosNivel1URL,{nickname: sessionConstants.nickname,pin: pin},function( data ) {
 				nivel1.palabras=data.nivel1;
 				$("#nivel1-palabra-1").html(nivel1.palabras[0].palabra1);
 				$("#nivel1-palabra-2").html(nivel1.palabras[0].palabra2);
@@ -44,7 +44,7 @@
 			nivel2.total=0;
 			nivel2.correctas=0;
 			$("#nivel2-letras").empty();
-			$.getJSON(appConstants.ejerciciosNivel2URL,{nickname: appConstants.nickname,pin: pin},function( data ) {
+			$.getJSON(appConstants.ejerciciosNivel2URL,{nickname: sessionConstants.nickname,pin: pin},function( data ) {
 				nivel2.palabras=data.nivel2;
 				var index=0;
 				nivel2.palabras[0].palabra.split('').forEach(function(letra) {
@@ -131,7 +131,8 @@
 					dataType:"text",
 					success: function (result)
 					{
-						alert("Se ha registrado el nuevo usuario correctamente");
+						alert(result);
+						location.href="#loginPage";
 					},
 					error: function (result) {
 						alert("No se ha podido registrar al nuevo usuario correctamente");
@@ -157,7 +158,7 @@
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
 						location.href="#userHome";
-						appConstants.nickname = document.getElementById("nnUser").value;
+						sessionConstants.nickname = document.getElementById("nnUser").value;
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -167,7 +168,7 @@
 					if(document.getElementById("radio-alumno-login-2").checked){
 						if(result=="0-Docente"){
 							location.href="#homePage";
-							appConstants.nickname = document.getElementById("nnUser").value;
+							sessionConstants.nickname = document.getElementById("nnUser").value;
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
@@ -234,7 +235,7 @@
 						function(){
 							var remoteURL = appConstants.serverURL + "audio/" + document.getElementById("palabraTilde").value + ".3gp";
 							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value)},
-									  login: appConstants.nickname,
+									  login: sessionConstants.nickname,
 									  url: remoteURL};
 							$.ajax({
 								url : appConstants.postNivel2URL,

@@ -109,7 +109,7 @@ var appConstants = {
 	{
 		return this.imageURL + "nivel3/"
 	},
-	nickname : "jon"
+	
 };
 
 var sessionConstants = {
