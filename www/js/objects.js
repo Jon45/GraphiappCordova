@@ -99,6 +99,9 @@ var appConstants = {
 	get postResultURL(){
 		return this.serverURL + "rest/GraphiApp/postResult";
 	},
+	get registerClassURL(){
+		return this.ServerURL + "rest/GraphiApp/registerClass";
+	},
 	get imageURL(){
 		return this.serverURL + "img/"
 	},
@@ -107,6 +110,11 @@ var appConstants = {
 		return this.imageURL + "nivel3/"
 	},
 	nickname : "jon"
+};
+
+var sessionConstants = {
+		nickname: "",
+		idClase: 0
 };
 
 var fileUtilities = {
