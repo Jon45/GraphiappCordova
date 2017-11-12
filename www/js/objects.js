@@ -66,7 +66,7 @@ var appConstants = {
 //	uploadFileURL: "http://10.107.16.86:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile", //EHU WIFI
 //	uploadFileURL: "http://192.168.0.38:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile" //HOME
 	//serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
-	//serverURL : "http://192.168.0.18:8080/GraphiAppServer/",
+	//serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
 	serverURL : "http://10.109.179.85:8080/GraphiAppServer/",
 	get ejerciciosNivel1URL () {
 	    return this.serverURL + "rest/GraphiApp/getNivel1";
@@ -109,12 +109,28 @@ var appConstants = {
 	{
 		return this.imageURL + "nivel3/"
 	},
-	
+	get persistentStorageFolderURL()
+	{
+//		return cordova.file.dataDirectory;
+		return cordova.file.externalDataDirectory;
+	},
+	get persistentStorageImageURL()
+	{
+		return this.persistentStorageFolderURL+"img/";
+	}
 };
 
 var sessionConstants = {
 		nickname: "",
-		idClase: 0
+		idClase: 0,
+		get profilePhotoName()
+		{
+			return "profile_photo_" + this.nickname + ".jpg";
+		},
+		get profilePhotoURL()
+		{
+			return appConstants.persistentStorageImageURL + this.profilePhotoName;
+		}
 };
 
 var fileUtilities = {

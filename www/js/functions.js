@@ -187,15 +187,15 @@
 				window.resolveLocalFileSystemURL(fotos[0].fullPath,
 						function gotFile(fileEntry)
 						{
-								window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory,
+								window.resolveLocalFileSystemURL(appConstants.persistentStorageFolderURL,
 								function(dirEntry)
 								{
 									dirEntry.getDirectory("img", {create: true, exclusive: false},
 									function(dirEntry){
-										fileEntry.copyTo(dirEntry,"profile_photo.jpg",
+										fileEntry.copyTo(dirEntry,sessionConstants.profilePhotoName,
 										function onSuccess()
 										{
-											$("#foto_perfil").attr("src",cordova.file.externalDataDirectory + "img/profile_photo.jpg?random="+new Date().getTime());
+											$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL + "?" + new Date().getTime());
 										});
 									});
 								});
