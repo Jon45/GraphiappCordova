@@ -14,6 +14,7 @@
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
         <meta http-equiv="Content-Security-Policy" content="media-src 'self' http://192.168.0.19:8080;
+															img-src 'self' http://192.168.0.19:8080 http://code.jquery.com;
         													connect-src 'self' http://192.168.0.19:8080 'unsafe-inline' 'unsafe-eval';"/>     
        <!--  <meta http-equiv="Content-Security-Policy" content="media-src 'self' http://10.109.179.85:8080;
         													connect-src 'self' http://10.109.179.85:8080 'unsafe-inline' 'unsafe-eval';"/>  -->      
@@ -289,7 +290,7 @@
 				<div data-role="controlgroup" data-type="horizontal">
 					<a href="#nivel1" id="botonNivel1" class="ui-btn ui-corner-all">NIVEL1</a>
 					<a href="#nivel2" id="botonNivel2" class="ui-btn ui-corner-all">NIVEL2</a>
-					<a href="#nivel3" class="ui-btn ui-corner-all">NIVEL3</a>
+					<a href="#nivel3" id="botonNivel3" class="ui-btn ui-corner-all">NIVEL3</a>
 				</div>
 				<div data-role="controlgroup" data-type="horizontal">
 					<a href="#nivel4" class="ui-btn ui-corner-all">NIVEL4</a>
@@ -327,10 +328,9 @@
 			</div>
 			<div data-role="content">
 				<h2>Selecciona la correcta</h2>
-				<img alt="Imagen no encontrada" src="img/test.jpg" width="80%" style="display:block;margin:auto;"/>
-				<button class="ui-btn ui-corner-all">Palabra1</button>
-				<button class="ui-btn ui-corner-all">Palabra2</button>
-				<!-- Cambiar el contenido de los botones y fuente de la imagen con javaScript -->
+				<img id="nivel3-imagen" alt="Imagen no encontrada" width="80%" style="display:block;margin:auto;"/>
+				<button id="nivel3-palabra-1" class="ui-btn ui-corner-all">Palabra1</button>
+				<button id="nivel3-palabra-2" class="ui-btn ui-corner-all">Palabra2</button>
 			</div>
 		</div>
 		<div data-role="page" id="nivel4">

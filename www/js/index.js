@@ -46,6 +46,16 @@ $("#botonNivel2").click(function () {
 	nivel2_start();
 });
 
+$("#botonNivel3").click(function () {
+	nivel3_start();
+});
+$("#nivel3-palabra-1").click(function () {
+	nivel3_check_word(1);
+});
+$("#nivel3-palabra-2").click(function () {
+	nivel3_check_word(2);
+});
+
 $("#regBtn").click(function (){
 	regNewUser();
 });

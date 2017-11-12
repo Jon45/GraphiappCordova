@@ -14,6 +14,45 @@ var nivel2 = {
 		index : 0
 };
 
+var nivel3 = {
+		correctas : 0,
+		total : 0,
+		palabras : [],
+		puntuacion: 0,
+		index : 0,
+		palabras_totales : [
+			{palabra1 : "Abrasar",palabra2 : "Abrazar",correcta : 2, get urlImagen(){return devuelveURLImagen(this)} ,pin : 041117},
+			{palabra1 : "Hasta",palabra2 : "Asta",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Barón",palabra2 : "Varón",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Cabo",palabra2 : "Cavó",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Sumo",palabra2 : "Zumo",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Sabia",palabra2 : "Sabía",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Arrollo",palabra2 : "Arroyo",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Vaca",palabra2 : "Baca",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Hola",palabra2 : "Ola",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Bobina",palabra2 : "Bovina",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 041117},
+			{palabra1 : "Cayo",palabra2 : "Callo",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Cierra",palabra2 : "Sierra",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Cocer",palabra2 : "Coser",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Hora",palabra2 : "Ora",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Poyo",palabra2 : "Pollo",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Rayo",palabra2 : "Rallo",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Tubo",palabra2 : "Tuvo",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Zueco" ,palabra2 : "Sueco",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Caza",palabra2 : "Casa",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Bota",palabra2 : "Vota",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 051217},
+			{palabra1 : "Hierba",palabra2 : "Hierva",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 071217},
+			{palabra1 : "Cima",palabra2 : "Sima",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 071217},
+			{palabra1 : "Hierro",palabra2 : "Yerro",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 071217},
+			{palabra1 : "Bello",palabra2 : "Vello",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 071217}
+		]
+};
+
+function devuelveURLImagen(self)
+{
+	var property="palabra"+self.correcta;
+	return appConstants.nivel3imageURL + self[property].normalize('NFD').replace(/[\u0300-\u036f]/g, "") + ".jpg";
+}
 var appConstants = {
 	localPermanentStorageFolder: "/sdcard/eus.ehu.intel.graphiapp/",
 	localPermanentStorageFolderImg: function () {
@@ -59,6 +98,13 @@ var appConstants = {
 	},
 	get postResultURL(){
 		return this.serverURL + "rest/GraphiApp/postResult";
+	},
+	get imageURL(){
+		return this.serverURL + "img/"
+	},
+	get nivel3imageURL()
+	{
+		return this.imageURL + "nivel3/"
 	},
 	nickname : "jon"
 };

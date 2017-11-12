@@ -82,6 +82,42 @@
 			parent.history.back();
 		};
 
+		function nivel3_start(pin){
+			nivel3.palabras = [];
+			nivel3.index=0;
+			nivel3.total=0;
+			nivel3.correctas=0;
+			nivel3.palabras=nivel3.palabras_totales.sort(() => .5 - Math.random()).slice(0,10); //TODO: Tener en cuenta pin
+			$("#nivel3-palabra-1").html(nivel3.palabras[0].palabra1);
+			$("#nivel3-palabra-2").html(nivel3.palabras[0].palabra2);
+			$("#nivel3-imagen").attr("src",nivel3.palabras[0].urlImagen);
+			};
+
+		function nivel3_check_word(num_palabra){
+			if (num_palabra === nivel3.palabras[nivel3.index].correcta)
+				{
+					nivel3.correctas++;
+				}
+			nivel3.total++;
+			nivel3.index++;
+			if (nivel3.index >= nivel3.palabras.length)
+				{
+					nivel3_end();
+				}
+			else
+				{
+					$("#nivel3-palabra-1").html(nivel3.palabras[nivel3.index].palabra1);
+					$("#nivel3-palabra-2").html(nivel3.palabras[nivel3.index].palabra2);
+					$("#nivel3-imagen").attr("src",nivel3.palabras[nivel3.index].urlImagen);
+				}
+		};
+
+		function nivel3_end(){
+			nivel3.puntuacion=nivel3.correctas/nivel3.total*10;
+			alert("Tu puntuacion es de " + nivel3.puntuacion);
+			parent.history.back();
+		};
+
 		function regNewUser(){
 			if(document.getElementById("radio-alumno-registro-1").checked) {
 				var data = {nombre: document.getElementById("nUser").value,
