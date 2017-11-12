@@ -118,6 +118,33 @@
 			parent.history.back();
 		};
 
+		function introducirDatosPerfil()
+		{
+			$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL);
+			$("#perfil-nombre").html(sessionConstants.nickname);
+			modificarMeterPerfil(nivel1.puntuacion,"#div-meter-1");
+			modificarMeterPerfil(nivel2.puntuacion,"#div-meter-2");
+			modificarMeterPerfil(nivel3.puntuacion,"#div-meter-3");
+			modificarMeterPerfil(nivel4.puntuacion,"#div-meter-4");
+			modificarMeterPerfil(nivel5.puntuacion,"#div-meter-5");
+			modificarMeterPerfil(nivel8.puntuacion,"#div-meter-8");
+		}
+
+		function modificarMeterPerfil(puntuacion,id)
+		{
+			var html;
+			if (puntuacion != -1)
+			{
+				html="<meter value=\"" + puntuacion/10 + "\">" + puntuacion*10 + "%</meter>" + puntuacion*10 + "%";
+			}
+
+			else
+			{
+				html="<font color=\"red\">No completado</font>";
+			}
+			$(id).html(html);
+		}
+
 		function regNewUser(){
 			if(document.getElementById("radio-alumno-registro-1").checked) {
 				var data = {nombre: document.getElementById("nUser").value,

@@ -64,7 +64,7 @@ $("#loginBtn").click(function(){
 
 $("#botonPerfil").click(function()
 {
-	$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL);
+	introducirDatosPerfil();
 });
 
 $("#foto_perfil").click(function()

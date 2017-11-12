@@ -2,7 +2,7 @@ var nivel1 = {
 		correctas : 0,
 		total : 0,
 		palabras : [],
-		puntuacion: 0,
+		puntuacion: -1,
 		index : 0
 };
 
@@ -10,7 +10,7 @@ var nivel2 = {
 		correctas : 0,
 		total : 0,
 		palabras : [],
-		puntuacion: 0,
+		puntuacion: -1,
 		index : 0
 };
 
@@ -18,7 +18,7 @@ var nivel3 = {
 		correctas : 0,
 		total : 0,
 		palabras : [],
-		puntuacion: 0,
+		puntuacion: -1,
 		index : 0,
 		palabras_totales : [
 			{palabra1 : "Abrasar",palabra2 : "Abrazar",correcta : 2, get urlImagen(){return devuelveURLImagen(this)} ,pin : 041117},
@@ -46,6 +46,18 @@ var nivel3 = {
 			{palabra1 : "Hierro",palabra2 : "Yerro",correcta : 1, get urlImagen(){return devuelveURLImagen(this)}, pin : 071217},
 			{palabra1 : "Bello",palabra2 : "Vello",correcta : 2, get urlImagen(){return devuelveURLImagen(this)}, pin : 071217}
 		]
+};
+
+var nivel4 = {
+	puntuacion : -1
+};
+
+var nivel5 = {
+	puntuacion : -1
+};
+
+var nivel8 = {
+	puntuacion : -1
 };
 
 function devuelveURLImagen(self)
