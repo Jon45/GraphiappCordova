@@ -113,3 +113,7 @@ h2 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+#nivel2-letras {
+	font-size:200%
+}
