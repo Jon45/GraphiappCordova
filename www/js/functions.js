@@ -331,7 +331,7 @@
 				fileUtilities.uploadFileAsync(urlLocal, "audio", appConstants.uploadFileURL,
 						function(){
 							var remoteURL = appConstants.serverURL + "audio/" + document.getElementById("palabraTilde").value + ".3gp";
-							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value)},
+							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value), clase: sessionConstants.idClase},
 									  login: sessionConstants.nickname,
 									  url: remoteURL};
 							$.ajax({
