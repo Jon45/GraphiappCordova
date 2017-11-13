@@ -257,13 +257,15 @@
 			var d = new Date(); //Vamos a configurar la fecha para metérsela a la clase
 			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
 			var fechastring = fecha.join("");
+			alert(fechastring);
 			var fechaint = parseInt(fechastring);
-			
+			alert("fecha convertida a INT");
 			var data= {fecha: fechaint,
 					tematica: document.getElementById("classTheme").value,
 					loginDocente: sessionConstants.nickname};
+			alert("objeto clase construido");
 			$.ajax({
-				url: appConstants.registerClassURL(),
+				url: appConstants.registerClassURL,
 				type: "post",
 				data: JSON.stringify(data),
 				contentType: "application/json",
@@ -273,6 +275,7 @@
 					location.href="#postNivel1";
 				},
 				error: function(result){
+					alert(result);
 					alert("no se pudo registrar la clase");
 				}
 			});
