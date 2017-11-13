@@ -130,7 +130,7 @@ var appConstants = {
 		return this.serverURL + "rest/GraphiApp/postResult";
 	},
 	get registerClassURL(){
-		return this.ServerURL + "rest/GraphiApp/registerClass";
+		return this.serverURL + "rest/GraphiApp/registerClass";
 	},
 	get imageURL(){
 		return this.serverURL + "img/"

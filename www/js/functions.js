@@ -257,13 +257,13 @@
 			var d = new Date(); //Vamos a configurar la fecha para metérsela a la clase
 			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
 			var fechastring = fecha.join("");
-			alert(fechastring);
+			
 			var fechaint = parseInt(fechastring);
-			alert("fecha convertida a INT");
+			
 			var data= {fecha: fechaint,
 					tematica: document.getElementById("classTheme").value,
 					loginDocente: sessionConstants.nickname};
-			alert("objeto clase construido");
+			
 			$.ajax({
 				url: appConstants.registerClassURL,
 				type: "post",
@@ -359,12 +359,24 @@
 			
 		};
 		function addN1(){
-			var data = {nivel1JSON: {correcta: document.getElementById("pCorrecta").value, palabra1: document.getElementById("pCorrecta").value, palabra2: document.getElementById("pIncorrecta").value, clase: sessionConstants.idClase},
+			alert("estoy ejecutando...");
+			var order = Math.floor((Math.random()*2)+1);
+			var data; 
+			if(order==1){
+				data = {nivel1JSON: {correcta: 1, palabra1: document.getElementById("pCorrecta").value, palabra2: document.getElementById("pIncorrecta").value, clase: parseInt(sessionConstants.idClase)},
+						
+						login: sessionConstants.nickname};
+			}
+			else{
+				data = {nivel1JSON: {correcta: 2, palabra1: document.getElementById("pIncorrecta").value, palabra2: document.getElementById("pCorrecta").value, clase: parseInt(sessionConstants.idClase)},
+						
+						login: sessionConstants.nickname};
+			}
 			
-					login: sessionConstants.nickname};
+			alert(data.login + " " + data.nivel1JSON.clase);
 			
 			$.ajax({
-				url: appConstants.postNivel2URL,
+				url: appConstants.postNivel1URL,
 				type: "post",
 				data: JSON.stringify(data),
 				contentType: "application/json",
@@ -373,6 +385,7 @@
 					alert("Añadido correctamente");
 				},
 				error: function(result){
+					
 					alert("No se ha podido añadir");
 				}
 			});

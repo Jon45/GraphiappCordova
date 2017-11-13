@@ -88,7 +88,7 @@ $("#audioN2S").click(function(){
 $("#btnSubmit2").click(function(){
 	addN2();
 });
-$("btnSubmit1").click(function(){
+$("#btnSubmit1").click(function(){
 	addN1();
 });
 $("#btnSubmit4").click(function(){
