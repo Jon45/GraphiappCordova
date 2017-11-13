@@ -71,9 +71,9 @@
         			<fieldset data-role="controlgroup">
         				<legend id="loginForm">Datos de usuario</legend>
         				<label>login:	</label>
-        				<input id="nnUser" type=text placeholder="ab001"/><br/>
+						<input id="nnUser" type=text placeholder="Nombre"/><br/>
         				<label>Contraseña:	</label>
-        				<input id="pwUser" type="password" placeholder="*******"/><br/>
+						<input id="pwUser" type="password" placeholder="Contraseña"/><br/>
         				<a href="" id="loginBtn" class="ui-btn ui-corner-all">Iniciar Sesión</a>
         			</fieldset>
         		</form>
@@ -279,7 +279,7 @@
 			</div>
 			<div data-role="content">
 				<a href="#pantallas" class="ui-btn ui-corner-all">COMENZAR</a> <br/>
-				<a href="#perfil" class="ui-btn ui-corner-all ui-icon-user ui-btn-icon-left">PERFIL</a>
+				<a id="botonPerfil" href="#perfil" class="ui-btn ui-corner-all ui-icon-user ui-btn-icon-left">PERFIL</a>
 			</div>
 		</div>
 		<div data-role="page" id="pantallas">
@@ -293,7 +293,7 @@
 					<a href="#nivel3" id="botonNivel3" class="ui-btn ui-corner-all">NIVEL3</a>
 				</div>
 				<div data-role="controlgroup" data-type="horizontal">
-					<a href="#nivel4" class="ui-btn ui-corner-all">NIVEL4</a>
+					<a href="#nivel4" id="botonNivel4" class="ui-btn ui-corner-all">NIVEL4</a>
 					<a href="#nivel5" class="ui-btn ui-corner-all">NIVEL5</a>
 					<a href="#nivel8" class="ui-btn ui-corner-all">NIVEL8</a>
 				</div>
@@ -339,12 +339,7 @@
 			</div>
 			<div data-role="content">
 				<h2>Corrige este titular</h2>
-					<div data-role="controlgroup" data-type="horizontal">
-						<button class="ui-btn ui-corner-all">Este</button>
-						<button class="ui-btn ui-corner-all">es</button>
-						<button class="ui-btn ui-corner-all">el</button>
-						<button class="ui-btn ui-corner-all">titular</button>
-					<!-- Cargar contenido del titular dinámicamente, esto solo ejemplo -->
+				<div id="nivel4-palabras" data-role="controlgroup" data-type="horizontal">
 				</div>
 			</div>
 		</div>
@@ -410,24 +405,23 @@
 		<div data-role="page" id="perfil">
 			<div data-role="header">
 				<img id="foto_perfil" style="height:64px; width:64px; display:block; margin: auto"/>
-				<h1>ab001</h1>
+				<h1 id="perfil-nombre">ab001</h1>
 			</div>
 			<div data-role="content">
 				<div class="ui-grid-c">
 					<div class="ui-block-a" style="font-weight:normal"><b>Nivel 1: </b><br/> Eficacia:</div>
-					<div class="ui-block-b"><meter value="0.8">80%</meter> 80%</div>
+					<div id="div-meter-1" class="ui-block-b"><meter value="0.8">80%</meter> 80%</div>
 					<div class="ui-block-c" style="font-weight:normal"><b>Nivel 4: </b><br/> Eficacia:</div>
-					<div class="ui-block-d"><font color="red">No completado</font></div>
+					<div id="div-meter-4" class="ui-block-d"><font color="red">No completado</font></div>
 					<div class="ui-block-a" style="font-weight:normal"><b>Nivel 2: </b><br/> Eficacia:</div>
-					<div class="ui-block-b"><meter value="1">100%</meter> 100%</div>
+					<div id="div-meter-2" class="ui-block-b"><meter value="1">100%</meter> 100%</div>
 					<div class="ui-block-c" style="font-weight:normal"><b>Nivel 5: </b><br/> Eficacia: </div>
-					<div class="ui-block-d"><font color="red">No completado</font></div>
+					<div id="div-meter-5" class="ui-block-d"><font color="red">No completado</font></div>
 					<div class="ui-block-a" style="font-weight:normal"><b>Nivel 3: </b><br/> Eficacia: </div>
-					<div class="ui-block-b"><font color="red">No completado</font></div>
+					<div id="div-meter-3" class="ui-block-b"><font color="red">No completado</font></div>
 					<div class="ui-block-c" style="font-weight:normal"><b>Nivel 8: </b><br/> Eficacia: </div>
-					<div class="ui-block-d"><font color="red">No completado</font></div>
+					<div id="div-meter-8" class="ui-block-d"><font color="red">No completado</font></div>
 				</div>
-				<!-- Los valores del <meter></meter> acabarán por ser dinámicos -->
 				<a href="#individual" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l" style="width:20%">ATRÁS</a>
 			</div>
 		</div>

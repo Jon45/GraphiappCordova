@@ -118,6 +118,75 @@
 			parent.history.back();
 		};
 
+		function nivel4_start(pin){
+			nivel4.palabras = [];
+			nivel4.index=0;
+			nivel4.total=0;
+			nivel4.correctas=0;
+			$("#nivel4-palabras").empty();
+			nivel4.titulares=nivel4.titulares_totales.sort(() => .5 - Math.random()).slice(0,10);
+				var index=0;
+				nivel4.titulares[0].titular.split(' ').forEach(function(palabra) {
+					index++;
+					$("#nivel4-palabras").append("<button onclick=nivel4_check_palabra("+index+")>"+palabra+"</button>");
+				});
+			};
+
+		function nivel4_check_palabra(num_palabra){
+			if (num_palabra === nivel4.titulares[nivel4.index].incorrecta)
+				{
+					nivel4.correctas++;
+				}
+			nivel4.total++;
+			nivel4.index++;
+			if (nivel4.index >= nivel4.titulares.length)
+				{
+					nivel4_end();
+				}
+			else
+				{
+					$("#nivel4-palabras").empty();
+					var index = 0;
+					nivel4.titulares[nivel4.index].titular.split(' ').forEach(function(palabra) {
+						index++;
+						$("#nivel4-palabras").append("<button onclick=nivel4_check_palabra("+index+")>"+palabra+"</button>");
+					});
+				}
+		};
+
+		function nivel4_end(){
+			nivel4.puntuacion=nivel4.correctas/nivel4.total*10;
+			alert("Tu puntuacion es de " + nivel4.puntuacion);
+			parent.history.back();
+		};
+
+		function introducirDatosPerfil()
+		{
+			$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL);
+			$("#perfil-nombre").html(sessionConstants.nickname);
+			modificarMeterPerfil(nivel1.puntuacion,"#div-meter-1");
+			modificarMeterPerfil(nivel2.puntuacion,"#div-meter-2");
+			modificarMeterPerfil(nivel3.puntuacion,"#div-meter-3");
+			modificarMeterPerfil(nivel4.puntuacion,"#div-meter-4");
+			modificarMeterPerfil(nivel5.puntuacion,"#div-meter-5");
+			modificarMeterPerfil(nivel8.puntuacion,"#div-meter-8");
+		}
+
+		function modificarMeterPerfil(puntuacion,id)
+		{
+			var html;
+			if (puntuacion != -1)
+			{
+				html="<meter value=\"" + puntuacion/10 + "\">" + puntuacion*10 + "%</meter>" + puntuacion*10 + "%";
+			}
+
+			else
+			{
+				html="<font color=\"red\">No completado</font>";
+			}
+			$(id).html(html);
+		}
+
 		function regNewUser(){
 			if(document.getElementById("radio-alumno-registro-1").checked) {
 				var data = {nombre: document.getElementById("nUser").value,
@@ -213,15 +282,15 @@
 				window.resolveLocalFileSystemURL(fotos[0].fullPath,
 						function gotFile(fileEntry)
 						{
-								window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory,
+								window.resolveLocalFileSystemURL(appConstants.persistentStorageFolderURL,
 								function(dirEntry)
 								{
 									dirEntry.getDirectory("img", {create: true, exclusive: false},
 									function(dirEntry){
-										fileEntry.copyTo(dirEntry,"profile_photo.jpg",
+										fileEntry.copyTo(dirEntry,sessionConstants.profilePhotoName,
 										function onSuccess()
 										{
-											$("#foto_perfil").attr("src",cordova.file.externalDataDirectory + "img/profile_photo.jpg?random="+new Date().getTime());
+											$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL + "?" + new Date().getTime());
 										});
 									});
 								});
