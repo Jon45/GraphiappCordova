@@ -374,3 +374,10 @@
 				}
 			});
 		};
+		function addN4(){
+			
+			var nuevoTitular = {titular: document.getElementById("titular").value,
+				incorrecta: parseInt(document.getElementById("posPInc").value)	
+			};
+			nivel4.titulares_totales.push(nuevoTitular);
+		};
