@@ -355,3 +355,22 @@
 			}
 			
 		};
+		function addN1(){
+			var data = {nivel1JSON: {correcta: document.getElementById("pCorrecta").value, palabra1: document.getElementById("pCorrecta").value, palabra2: document.getElementById("pIncorrecta").value, clase: sessionConstants.idClase},
+			
+					login: sessionConstants.nickname};
+			
+			$.ajax({
+				url: appConstants.postNivel2URL,
+				type: "post",
+				data: JSON.stringify(data),
+				contentType: "application/json",
+				dataType: "text",
+				success: function(result){
+					alert("Añadido correctamente");
+				},
+				error: function(result){
+					alert("No se ha podido añadir");
+				}
+			});
+		};
