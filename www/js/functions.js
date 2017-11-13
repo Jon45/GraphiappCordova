@@ -118,6 +118,48 @@
 			parent.history.back();
 		};
 
+		function nivel4_start(pin){
+			nivel4.palabras = [];
+			nivel4.index=0;
+			nivel4.total=0;
+			nivel4.correctas=0;
+			$("#nivel4-palabras").empty();
+			nivel4.titulares=nivel4.titulares_totales.sort(() => .5 - Math.random()).slice(0,10);
+				var index=0;
+				nivel4.titulares[0].titular.split(' ').forEach(function(palabra) {
+					index++;
+					$("#nivel4-palabras").append("<button onclick=nivel4_check_palabra("+index+")>"+palabra+"</button>");
+				});
+			};
+
+		function nivel4_check_palabra(num_palabra){
+			if (num_palabra === nivel4.titulares[nivel4.index].incorrecta)
+				{
+					nivel4.correctas++;
+				}
+			nivel4.total++;
+			nivel4.index++;
+			if (nivel4.index >= nivel4.titulares.length)
+				{
+					nivel4_end();
+				}
+			else
+				{
+					$("#nivel4-palabras").empty();
+					var index = 0;
+					nivel4.titulares[nivel4.index].titular.split(' ').forEach(function(palabra) {
+						index++;
+						$("#nivel4-palabras").append("<button onclick=nivel4_check_palabra("+index+")>"+palabra+"</button>");
+					});
+				}
+		};
+
+		function nivel4_end(){
+			nivel4.puntuacion=nivel4.correctas/nivel4.total*10;
+			alert("Tu puntuacion es de " + nivel4.puntuacion);
+			parent.history.back();
+		};
+
 		function introducirDatosPerfil()
 		{
 			$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL);

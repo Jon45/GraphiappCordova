@@ -55,6 +55,10 @@ $("#nivel3-palabra-2").click(function () {
 	nivel3_check_word(2);
 });
 
+$("#botonNivel4").click(function () {
+	nivel4_start();
+});
+
 $("#regBtn").click(function (){
 	regNewUser();
 });

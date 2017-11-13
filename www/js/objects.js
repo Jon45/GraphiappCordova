@@ -49,7 +49,23 @@ var nivel3 = {
 };
 
 var nivel4 = {
-	puntuacion : -1
+	correctas : 0,
+	total : 0,
+	titulares : [],
+	puntuacion: -1,
+	index : 0,
+	titulares_totales : [
+		{titular : "Descubre que es canival tras morderse la lengua y querer repetir", incorrecta : 4 },
+		{titular : "Denuncian situaziones laborables que perjudican a adolescentes", incorrecta : 2 },
+		{titular : "La ambruna crece en todo el mundo", incorrecta : 2 },
+		{titular : "La venta de las bibiendas ha aumentado un 50%", incorrecta : 5 },
+		{titular : "El Rei hace público un sueldo de 292.000€ brutos al año", incorrecta : 2 },
+		{titular : "Un abión español se estrella en Turquia por tercera vez lo que va en de año", incorrecta : 2 },
+		{titular : "Condenan a ocho de los tres akusados por secuestrar a un menor", incorrecta : 7 },
+		{titular : "Rova un coche para aparcarlo mejor", incorrecta : 1 },
+		{titular : "Los presos de las cárceles españolas critican la hentrada en masa de “gente normal”", incorrecta : 9 },
+		{titular : "Dios admite en el Sielo al primer pecador", incorrecta : 5 }
+	]
 };
 
 var nivel5 = {
