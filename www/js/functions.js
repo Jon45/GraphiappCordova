@@ -228,6 +228,7 @@
 					if(result=="0-Alumno"){
 						location.href="#userHome";
 						sessionConstants.nickname = document.getElementById("nnUser").value;
+						localStorage.setItem("login", sessionConstants.nickname);
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -238,6 +239,7 @@
 						if(result=="0-Docente"){
 							location.href="#homePage";
 							sessionConstants.nickname = document.getElementById("nnUser").value;
+							localStorage.setItem("login", sessionConstants.nickname);
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
