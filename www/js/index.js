@@ -22,16 +22,19 @@ var app = {
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         console.log('Received Event: ' + id);
-        var currentLogin=JSON.parse(localStorage.getItem("lastLoginUsed"));
-        if(currentLogin.tipo==1){
-        	studentSessionConstants = currentLogin;
-        	location.href="#userHome";
+        var lastLoginUser = localStorage.getItem("lastLoginUsed");
+        if (lastLoginUser!=null)
+        {
+            var currentLogin=JSON.parse(lastLoginUser);
+            if(currentLogin.tipo==1){
+            	studentSessionConstants = currentLogin;
+            	location.href="#userHome";
+            }
+            else{
+            	teacherSessionConstants = currentLogin;
+            	location.href="#homePage";
+            }
         }
-        else{
-        	teacherSessionConstants = currentLogin;
-        	location.href="#homePage";
-        }
-        
     }
 };
 
