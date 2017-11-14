@@ -122,7 +122,7 @@
 		};
 
 		function nivel4_start(pin){
-			nivel4.palabras = [];
+			nivel4.titulares = [];
 			nivel4.index=0;
 			nivel4.total=0;
 			nivel4.correctas=0;
