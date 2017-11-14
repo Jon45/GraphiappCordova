@@ -231,7 +231,7 @@
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
 						location.href="#userHome";
-						StudentSessionConstants.nickname = document.getElementById("nnUser").value;
+						studentSessionConstants.nickname = document.getElementById("nnUser").value;
 						localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 					}
 					else{
