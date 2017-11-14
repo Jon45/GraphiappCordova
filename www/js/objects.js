@@ -66,7 +66,9 @@ var nivel4 = {
 
 var nivel5 = {
 	correctas: 0,
-	total: 0
+	total: 0,
+	ejercicios: [],
+	ejercicios_totales: [{palabra1: "bote", palabra2: "vote", frase1: "Ellos van de paseo en su *** nuevo", frase2: "Se espera que el grupo *** hoy a su delegado"}]
 };
 
 var nivel8 = {
