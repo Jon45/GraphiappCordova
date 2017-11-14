@@ -167,12 +167,12 @@ var studentSessionConstants = {
 		{
 			return appConstants.persistentStorageImageURL + this.profilePhotoName;
 		},
-		resultados1: 0, //Resultados de nivel1
-		resultados2: 0, //Resultados de nivel2
-		resultados3: 0, //Resultados de nivel3
-		resultados4: 0, //Resultados de nivel4
-		resultados5: 0, //Resultados de nivel5
-		resultados8: 0  //Resultados de nivel8
+		resultados1: -1, //Resultados de nivel1
+		resultados2: -1, //Resultados de nivel2
+		resultados3: -1, //Resultados de nivel3
+		resultados4: -1, //Resultados de nivel4
+		resultados5: -1, //Resultados de nivel5
+		resultados8: -1  //Resultados de nivel8
 };
 
 var fileUtilities = {
