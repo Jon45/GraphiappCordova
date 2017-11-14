@@ -397,7 +397,7 @@
 			var urlLocal = appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
-				uploadFile=confirm("La descarga puede generar gran tráfico de datos");
+				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			
 			if(uploadFile==true){
@@ -427,6 +427,25 @@
 						});
 			}
 			
+		};
+		function addN3(){
+			var localURL = document.getElementById("filePicker").value;
+			var uploadFile = true;
+			if(navigator.connection.type != Connection.WIFI){
+				uploadFile=confirm("La subida puede generar gran tráfico de datos");
+			}
+			if(uploadFile==true){
+				fileUtilities.uploadFileAsync(localURL, "image", appConstants.uploadFileURL,
+						function(){
+							var splttdStr = localURL.split("/");
+							var fileName = splttdString.slice(-1);
+							var remoteURL = appConstants.serverURL + "img/" + fileName;
+							var data={};
+						},
+						function(){
+							alert("No se ha subido la imagen");
+						});
+			}
 		};
 		function addN1(){
 			
