@@ -113,3 +113,6 @@ $("#classBegin").click(function(){
 $("#btnSubmit5").click(function(){
 	addN5();
 });
+$("#btnSubmit8").click(function(){
+	addN8();
+});
