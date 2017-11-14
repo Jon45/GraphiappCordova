@@ -2,7 +2,6 @@ var nivel1 = {
 		correctas : 0,
 		total : 0,
 		palabras : [],
-		puntuacion: -1,
 		index : 0
 };
 
@@ -10,7 +9,6 @@ var nivel2 = {
 		correctas : 0,
 		total : 0,
 		palabras : [],
-		puntuacion: -1,
 		index : 0
 };
 
@@ -18,7 +16,6 @@ var nivel3 = {
 		correctas : 0,
 		total : 0,
 		palabras : [],
-		puntuacion: -1,
 		index : 0,
 		palabras_totales : [
 			{palabra1 : "Abrasar",palabra2 : "Abrazar",correcta : 2, get urlImagen(){return devuelveURLImagen(this)} ,pin : 041117},
@@ -52,7 +49,6 @@ var nivel4 = {
 	correctas : 0,
 	total : 0,
 	titulares : [],
-	puntuacion: -1,
 	index : 0,
 	titulares_totales : [
 		{titular : "Descubre que es canival tras morderse la lengua y querer repetir", incorrecta : 4 },
@@ -69,11 +65,13 @@ var nivel4 = {
 };
 
 var nivel5 = {
-	puntuacion : -1
+	correctas: 0,
+	total: 0
 };
 
 var nivel8 = {
-	puntuacion : -1
+	correctas: 0,
+	total: 0	
 };
 
 function devuelveURLImagen(self)
@@ -95,7 +93,7 @@ var appConstants = {
 //	uploadFileURL: "http://192.168.0.38:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile" //HOME
 	//serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
 	//serverURL : "http://192.168.0.18:8080/GraphiAppServer/",
-	serverURL : "http://192.168.0.24:8080/GraphiAppServer/",
+	serverURL : "http://192.168.0.16:8080/GraphiAppServer/",
 	//serverURL : "http://10.109.179.85:8080/GraphiAppServer/",
 
 	get ejerciciosNivel1URL () {
@@ -150,9 +148,17 @@ var appConstants = {
 	}
 };
 
-var sessionConstants = {
+
+var teacherSessionConstants = {
 		nickname: "",
-		idClase: 0,
+		tipo: 2,
+		idClase: 0
+		
+};
+
+var studentSessionConstants = {
+		nickname: "",
+		tipo: 1,
 		get profilePhotoName()
 		{
 			return "profile_photo_" + this.nickname + ".jpg";
@@ -160,7 +166,13 @@ var sessionConstants = {
 		get profilePhotoURL()
 		{
 			return appConstants.persistentStorageImageURL + this.profilePhotoName;
-		}
+		},
+		resultados1: 0, //Resultados de nivel1
+		resultados2: 0, //Resultados de nivel2
+		resultados3: 0, //Resultados de nivel3
+		resultados4: 0, //Resultados de nivel4
+		resultados5: 0, //Resultados de nivel5
+		resultados8: 0  //Resultados de nivel8
 };
 
 var fileUtilities = {

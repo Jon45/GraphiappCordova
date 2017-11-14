@@ -33,8 +33,9 @@
 		};
 		
 		function nivel1_end(){
-			nivel1.puntuacion=nivel1.correctas/nivel1.total*10;
-			alert("Tu puntuacion es de " + nivel1.puntuacion);
+			studentSessionConstants.resultados1=nivel1.correctas/nivel1.total*10;
+			alert("Tu puntuacion es de " + studentSessionConstants.resultados1);
+			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 			parent.history.back();
 		};
 		
@@ -77,8 +78,9 @@
 		};
 		
 		function nivel2_end(){
-			nivel2.puntuacion=nivel2.correctas/nivel2.total*10;
-			alert("Tu puntuacion es de " + nivel2.puntuacion);
+			studentSessionConstants.resultados2=nivel2.correctas/nivel2.total*10;
+			alert("Tu puntuacion es de " + studentSessionConstants.resultados2);
+			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 			parent.history.back();
 		};
 
@@ -113,8 +115,9 @@
 		};
 
 		function nivel3_end(){
-			nivel3.puntuacion=nivel3.correctas/nivel3.total*10;
-			alert("Tu puntuacion es de " + nivel3.puntuacion);
+			studentSessionConstants.resultados3=nivel3.correctas/nivel3.total*10;
+			alert("Tu puntuacion es de " + studentSessionConstants.resultados3);
+			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 			parent.history.back();
 		};
 
@@ -155,21 +158,22 @@
 		};
 
 		function nivel4_end(){
-			nivel4.puntuacion=nivel4.correctas/nivel4.total*10;
-			alert("Tu puntuacion es de " + nivel4.puntuacion);
+			studentSessionConstants.resultados4=nivel4.correctas/nivel4.total*10;
+			alert("Tu puntuacion es de " + studentSessionConstants.resultados4);
+			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 			parent.history.back();
 		};
 
 		function introducirDatosPerfil()
 		{
-			$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL);
-			$("#perfil-nombre").html(sessionConstants.nickname);
-			modificarMeterPerfil(nivel1.puntuacion,"#div-meter-1");
-			modificarMeterPerfil(nivel2.puntuacion,"#div-meter-2");
-			modificarMeterPerfil(nivel3.puntuacion,"#div-meter-3");
-			modificarMeterPerfil(nivel4.puntuacion,"#div-meter-4");
-			modificarMeterPerfil(nivel5.puntuacion,"#div-meter-5");
-			modificarMeterPerfil(nivel8.puntuacion,"#div-meter-8");
+			$("#foto_perfil").attr("src",studentSessionConstants.profilePhotoURL);
+			$("#perfil-nombre").html(studentSessionConstants.nickname);
+			modificarMeterPerfil(studentSessionConstants.resultados1,"#div-meter-1");
+			modificarMeterPerfil(studentSessionConstants.resultados2,"#div-meter-2");
+			modificarMeterPerfil(studentSessionConstants.resultados3,"#div-meter-3");
+			modificarMeterPerfil(studentSessionConstants.resultados4,"#div-meter-4");
+			modificarMeterPerfil(studentSessionConstants.resultados5,"#div-meter-5");
+			modificarMeterPerfil(studentSessionConstants.resultados8,"#div-meter-8");
 		}
 
 		function modificarMeterPerfil(puntuacion,id)
@@ -227,8 +231,8 @@
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
 						location.href="#userHome";
-						sessionConstants.nickname = document.getElementById("nnUser").value;
-						localStorage.setItem("login", sessionConstants.nickname);
+						StudentSessionConstants.nickname = document.getElementById("nnUser").value;
+						localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -238,8 +242,8 @@
 					if(document.getElementById("radio-alumno-login-2").checked){
 						if(result=="0-Docente"){
 							location.href="#homePage";
-							sessionConstants.nickname = document.getElementById("nnUser").value;
-							localStorage.setItem("login", sessionConstants.nickname);
+							teacherSessionConstants.nickname = document.getElementById("nnUser").value;
+							localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
@@ -396,4 +400,5 @@
 				incorrecta: parseInt(document.getElementById("posPInc").value)	
 			};
 			nivel4.titulares_totales.push(nuevoTitular);
+			localStorage.setItem("Nivel4", JSON.stringify(nivel4));
 		};
