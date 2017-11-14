@@ -131,7 +131,7 @@
 				var index=0;
 				nivel4.titulares[0].titular.split(' ').forEach(function(palabra) {
 					index++;
-					$("#nivel4-palabras").append("<button onclick=nivel4_check_palabra("+index+")>"+palabra+"</button>");
+					$("#nivel4-palabras").append("<button data-role=\"none\" onclick=nivel4_check_palabra("+index+")>"+palabra+"</button>");
 				});
 			};
 
@@ -185,7 +185,7 @@
 			var frase_split = frase.split('***',2);
 			$("#nivel5-frase-"+num_frase).empty();
 			$("#nivel5-frase-"+num_frase).append(frase_split[0] + " ");
-			$("#nivel5-frase-"+num_frase).append("<input type=\"text\" id=\"nivel5-botonFrase-" + num_frase + "\"/>");
+			$("#nivel5-frase-"+num_frase).append("<input data-role=\"none\" type=\"text\" id=\"nivel5-botonFrase-" + num_frase + "\"/>");
 			$("#nivel5-botonFrase-"+num_frase).attr("class","");
 			$("#nivel5-frase-"+num_frase).append(" " + frase_split[1]);
 		};
