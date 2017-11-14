@@ -163,6 +163,72 @@
 			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 			parent.history.back();
 		};
+		
+		function nivel5_start(pin){
+			nivel5.ejercicios = [];
+			nivel5.index=0;
+			nivel5.total=0;
+			nivel5.correctas=0;
+			$("#nivel5-palabra-1").empty();
+			$("#nivel5-palabra-2").empty();
+			$("#nivel5-frase-1").empty();
+			$("#nivel5-frase-2").empty();
+			
+			nivel5.ejercicios=nivel5.ejercicios_totales.sort(() => .5 - Math.random()).slice(0,10);
+			nivel5IntroducirPalabras(nivel5.index);
+			nivel5CambiarFrase(nivel5.ejercicios[0].frase1,1);
+			nivel5CambiarFrase(nivel5.ejercicios[0].frase2,2);
+			};
+
+		function nivel5CambiarFrase(frase,num_frase)
+		{
+			var frase_split = frase.split('***',2);
+			$("#nivel5-frase-"+num_frase).empty();
+			$("#nivel5-frase-"+num_frase).append(frase_split[0] + " ");
+			$("#nivel5-frase-"+num_frase).append("<input type=\"text\" id=\"nivel5-botonFrase-" + num_frase + "\"/>");
+			$("#nivel5-botonFrase-"+num_frase).attr("class","");
+			$("#nivel5-frase-"+num_frase).append(" " + frase_split[1]);
+		};
+		
+		function nivel5_check_palabras(){
+			if ($("#nivel5-botonFrase-1").val() === nivel5.ejercicios[nivel5.index].palabra1 && $("#nivel5-botonFrase-2").val() === nivel5.ejercicios[nivel5.index].palabra2)
+			{
+				nivel5.correctas++;
+			}
+			nivel5.total++;
+			nivel5.index++;
+			if (nivel5.index >= nivel5.ejercicios.length)
+				{
+					nivel5_end();
+				}
+			else
+				{
+					nivel5IntroducirPalabras(nivel5.index);
+					nivel5CambiarFrase(nivel5.ejercicios[nivel5.index].frase1,1);
+					nivel5CambiarFrase(nivel5.ejercicios[nivel5.index].frase2,2);
+				}
+		};
+
+		function nivel5IntroducirPalabras(index)
+		{
+			if (Math.random() < 0.5)
+			{
+				$("#nivel5-palabra-1").html(nivel5.ejercicios[index].palabra1);
+				$("#nivel5-palabra-2").html(nivel5.ejercicios[index].palabra2);
+			}
+		else
+			{
+				$("#nivel5-palabra-1").html(nivel5.ejercicios[index].palabra2);
+				$("#nivel5-palabra-2").html(nivel5.ejercicios[index].palabra1);
+			}
+		}
+		
+		function nivel5_end(){
+			studentSessionConstants.resultados5=nivel5.correctas/nivel5.total*10;
+			alert("Tu puntuacion es de " + studentSessionConstants.resultados5);
+			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+			parent.history.back();
+		};
 
 		function introducirDatosPerfil()
 		{

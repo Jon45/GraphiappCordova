@@ -66,7 +66,25 @@ var nivel4 = {
 
 var nivel5 = {
 	correctas: 0,
-	total: 0
+	total: 0,
+	index : 0,
+	ejercicios : [],
+	ejercicios_totales : [
+		{frase1 : "Ellos van de paseo en su *** nuevo", frase2 : "Se espera que el grupo *** hoy a su delegado",palabra1 : "bote",palabra2 : "vote"},
+		{frase1 : "Roberto *** y aceptó el consejo", frase2 : "El niño se *** y esta llorando",palabra1 : "calló",palabra2 : "cayó"},
+		{frase1 : "La bandera ondea en su ***", frase2 : "carmen lleva a María *** el colegio",palabra1 : "asta",palabra2 : "hasta"},
+		{frase1 : "En la pared colocaron un *** nuevo", frase2 : "José *** que perdonar a su hermano",palabra1 : "tubo",palabra2 : "tuvo"},
+		{frase1 : "Una *** gigante se acercó a la playa", frase2 : "EL niño saludo con un ``***´´ a su amiga.",palabra1 : "ola",palabra2 : "hola"},
+		{frase1 : "En las comidas el niño *** agua", frase2 : "el bebé llora cada vez que quiere comer",palabra1 : "bebe",palabra2 : "bebé"},
+		{frase1 : "La partida de cartas se gana con el *** de oros", frase2 : "*** de terminar los deberes para ir al parque",palabra1 : "as",palabra2 : "Has" },
+		{frase1 : "mi hermana heredó todos los *** de mi tio", frase2 : "¿Mañana *** a la comida familiar?",palabra1 : "Bienes",palabra2 : "Vienes"},
+		{frase1 : "Estoy *** con mi mejor amiga", frase2 : "Yo *** la plastilina antes de realizar figuras",palabra1 : "hablando",palabra2 : "ablando"},
+		{frase1 : "Este curriculum no es *** para este puesto de trabajo", frase2 : "Se ha escuchado un *** en la granja",palabra1 : "valido",palabra2 : "balido"},
+		{frase1 : "Voy a cocinar la sopa en la *** de mi madre", frase2 : "han cavado una *** para esconder el tesoro",palabra1 : "olla",palabra2 : "hoya"},
+		{frase1 : "Voy a *** las fotos de mis vacaciones", frase2 : "los soldados se *** ante su superior",palabra1 : "revelar",palabra2 : "rebelar"},
+		{frase1 : "debo detenerme en el *** el paso", frase2 : "El pañuelo de la actriz es de ***",palabra1 : "ceda",palabra2 : "seda"},
+		{frase1 : "Esta noche ha caido un *** en el tejado", frase2 : "ese niño *** el coche de su madre",palabra1 : "rayo",palabra2 : "ralló"}
+	]
 };
 
 var nivel8 = {

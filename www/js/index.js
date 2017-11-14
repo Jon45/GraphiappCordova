@@ -72,6 +72,10 @@ $("#botonNivel4").click(function () {
 	nivel4_start();
 });
 
+$("#botonNivel5").click(function () {
+	nivel5_start();
+});
+
 $("#regBtn").click(function (){
 	regNewUser();
 });

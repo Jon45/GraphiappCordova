@@ -268,7 +268,7 @@
 			</div>
 			<div data-role="content">
 				<video id="video-ayuda" autoplay="autoplay" controls="controls" loop="loop">
-					<source src="url_video" type="video/mp4"/>
+					<source src="" type="video/mp4"/>
 				</video>
 				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
@@ -294,7 +294,7 @@
 				</div>
 				<div data-role="controlgroup" data-type="horizontal">
 					<a href="#nivel4" id="botonNivel4" class="ui-btn ui-corner-all">NIVEL4</a>
-					<a href="#nivel5" class="ui-btn ui-corner-all">NIVEL5</a>
+					<a href="#nivel5" id="botonNivel5" class="ui-btn ui-corner-all">NIVEL5</a>
 					<a href="#nivel8" class="ui-btn ui-corner-all">NIVEL8</a>
 				</div>
 			</div>
@@ -350,18 +350,13 @@
 			<div data-role="content">
 				<h2>Coloca la palabra en la frase correcta</h2>
 				<div data-role="controlgroup" id="buttons-2">
-					<p class="boxed grey">palabra1</p>
-					<p class="boxed grey">palabra2 </p>
-					<form>
-					<p class="titular">Esta es la
-					<input placeholder="palabra" type="text" style="display:inline;width:100px;"/>
+					<p id="nivel5-palabra-1" class="boxed grey"></p>
+					<p id="nivel5-palabra-2" class="boxed grey"></p>
+					<p id="nivel5-frase-1">
 					</p>
-					<p class="titular"> Esta es la
-					<input placeholder="palabra" type="text" style="display:inline;width:100px;"/>
+					<p id="nivel5-frase-2">
 					</p>
-					<input type="submit" value="Confirmar"/>
-					</form>
-					<!-- Parecía que querían que las palabras se arrastraran. De momento se escriben y ya. Falta conseguir que los inputs salgan inline. Cargar todo dinámicamente además-->
+					<button onclick="nivel5_check_palabras()">Confirmar</button>
 				</div>
 			</div>
 		</div>

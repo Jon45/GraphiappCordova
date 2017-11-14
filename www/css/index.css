@@ -117,3 +117,11 @@ h2 {
 #nivel2-letras {
 	font-size:200%
 }
+
+input[id^=nivel5-botonFrase] {
+	display: inline-block;
+  	line-height: 1.5;
+  	padding: 0 3px;
+	width : 32px;
+}
+
