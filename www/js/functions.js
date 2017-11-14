@@ -429,7 +429,7 @@
 			
 		};
 		function addN1(){
-			alert("estoy ejecutando...");
+			
 			var order = Math.floor((Math.random()*2)+1);
 			var data; 
 			if(order==1){
@@ -442,8 +442,6 @@
 						
 						login: sessionConstants.nickname};
 			}
-			
-			alert(data.login + " " + data.nivel1JSON.clase);
 			
 			$.ajax({
 				url: appConstants.postNivel1URL,
@@ -467,4 +465,28 @@
 			};
 			nivel4.titulares_totales.push(nuevoTitular);
 			localStorage.setItem("Nivel4", JSON.stringify(nivel4));
+		};
+		function addN5(){
+			var nuevoEjercicio={palabra1: document.getElementById("palabra1").value,
+					palabra2: document.getElementById("palabra2").value,
+					frase1: document.getElementById("frase1").value,
+					frase2: document.getElementById("frase2").value};
+			nivel5.ejercicios_totales.push(nuevoEjercicio);
+			localStorage.setItem("Nivel5", JSON.stringify(nivel5));
+		};
+		function addN8(){
+			var nuevoEjercicio={palabra: document.getElementById("palabra1").value, acento: 0};
+			if(document.getElementById("radio1").checked){
+				nuevoEjercicio.acento = 1;
+			}
+			else{
+				if(document.getElementById("radio2").checked){
+					nuevoEjercicio.acento = 2;
+				}
+				else{
+					nuevoEjercicio.acento = 3;
+				}
+			}
+			nivel8.ejercicios_totales.push(nuevoEjercicio);
+			localStorage.setItem("Nivel8", JSON.stringify(nivel8));
 		};

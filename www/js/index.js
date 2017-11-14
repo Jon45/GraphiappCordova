@@ -114,3 +114,9 @@ $("#btnSubmit4").click(function(){
 $("#classBegin").click(function(){
 	addClass();
 });
+$("#btnSubmit5").click(function(){
+	addN5();
+});
+$("#btnSubmit8").click(function(){
+	addN8();
+});

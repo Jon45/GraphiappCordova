@@ -89,7 +89,9 @@ var nivel5 = {
 
 var nivel8 = {
 	correctas: 0,
-	total: 0	
+	total: 0,
+	ejercicios: [],
+	ejercicios_totales: [{palabra: "acusar", acento: 1}]
 };
 
 function devuelveURLImagen(self)
