@@ -85,6 +85,7 @@
         <div data-role="page" id="homePage">
         	<div data-role="header">
         		<h1>CLASES GUARDADAS</h1>
+        		<a href="#teacherPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
         	</div>
         	<div data-role="content">
         		To be generated dynamically depending on the classes...
@@ -163,11 +164,10 @@
         	<div data-role="content">
         		<form method="post">
         		<label>Palabra correcta:	</label>
-        		<input type="text"/><br/>
+        		<input id="pCorrecta3" type="text"/><br/>
         		<label>Palabra incorrecta: </label>
-        		<input type="text"/>
-        		<input type="hidden" value="img" name="filetype"/>
-        		<input type="file" name="file" accept="image/*"/>
+        		<input id="pIncorrecta3" type="text"/>
+        		<input id="filePicker" type="file" name="file" accept="image/*"/>
         		
         		<!-- Pensar cómo hacer lo de las imágenes y esas cosas... -->
         		<a href="" id="pn3Btn" class="ui-btn ui-corner-all">AÑADIR</a>
@@ -252,6 +252,27 @@
         		</div>
         	</div>
         	<div data-role="footer" data-position="fixed"></div>
+        </div>
+        <div data-role="panel" id="teacherPanel" data-position="left" data-display="overlay">
+        	<div class="ui-panel-inner">
+        		<ul data-role="listview">
+        			<li>
+        				<a id="menu-logout-t" href="">Cerrar Sesión</a>
+        			</li>
+        		</ul>
+        	</div>
+        </div>
+        <div data-role="panel" id="studentPanel" data-position="left" data-display="overlay">
+        	<div class="ui-panel-inner">
+        		<ul data-role="listview">
+        			<li data-icon="user">
+        				<a id="menu-profile" href="#perfil">Perfil</a>
+        			</li>
+        			<li>
+        				<a id="menu-logout-s" href="">Cerrar sesión</a>
+        			</li>
+        		</ul>
+        	</div>
         </div>
         <div data-role="page" id="userHome">
 			<div data-role="header">

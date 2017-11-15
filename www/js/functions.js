@@ -318,12 +318,23 @@
 			}
 			else{
 				if(document.getElementById("radio-alumno-registro-2").checked){
-					//Permanent storage
+					//DOCENTE
+					var db = window.openDatabase("TeachersDB", "1.0", "TeachersDB", 100000);
+					db.transaction(populateDB,errorDB, successDB);
 				}
 				else{
 					alert("Debes marcar el tipo de usuario");
 				}
 			}
+			
+		};
+		function populateDB(tx){
+			tx.executeSql('CREATE TABLE IF NOT EXISTS Teachers (id unique, nombre, apellidos, nickname, password)');
+		};
+		function successCB(){
+			
+		};
+		function errorCB(){
 			
 		};
 
@@ -435,7 +446,7 @@
 			var urlLocal = appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
-				uploadFile=confirm("La descarga puede generar gran tráfico de datos");
+				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			
 			if(uploadFile==true){
@@ -466,6 +477,42 @@
 			}
 			
 		};
+		function addN3(){
+			var localURL = document.getElementById("filePicker").value;
+			var uploadFile = true;
+			if(navigator.connection.type != Connection.WIFI){
+				uploadFile=confirm("La subida puede generar gran tráfico de datos");
+			}
+			if(uploadFile==true){
+				fileUtilities.uploadFileAsync(localURL, "image", appConstants.uploadFileURL,
+						function(){
+							var splttdStr = localURL.split("/");
+							var fileName = splttdString.slice(-1);
+							var remoteURL = appConstants.serverURL + "img/" + fileName;
+							var data={};
+							var order = Math.floor((Math.random()*2)+1);
+							if(order==1){
+								data = {palabra1: document.getElementById("pCorrecta3").value, palabra2: document.getElementById("pIncorrecta3").value, correcta: 1, url: remoteURL, pin: getFechaInt()};
+							}
+							else{
+								data = {palabra1: document.getElementById("pIncorrecta3").value, palabra2: document.getElementById("pCorrecta3").value, correcta: 2, url: remoteURL, pin: getFechaInt()};
+							}
+							
+							nivel3.palabras_totales.push(data);
+							localStorage.setItem("Nivel3",JSON.stringify(nivel3));
+						},
+						function(){
+							alert("No se ha subido la imagen");
+						});
+			}
+		};
+		function getFechaInt(){
+			var d = new Date(); 
+			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
+			var fechastring = fecha.join("");
+			var fechaint = parseInt(fechastring);
+			return fechaint;
+		}
 		function addN1(){
 			
 			var order = Math.floor((Math.random()*2)+1);
