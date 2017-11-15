@@ -411,10 +411,10 @@
 								{
 									dirEntry.getDirectory("img", {create: true, exclusive: false},
 									function(dirEntry){
-										fileEntry.copyTo(dirEntry,sessionConstants.profilePhotoName,
+										fileEntry.copyTo(dirEntry,studentSessionConstants.profilePhotoName,
 										function onSuccess()
 										{
-											$("#foto_perfil").attr("src",sessionConstants.profilePhotoURL + "?" + new Date().getTime());
+											$("#foto_perfil").attr("src",studentSessionConstants.profilePhotoURL + "?" + new Date().getTime());
 										});
 									});
 								});
