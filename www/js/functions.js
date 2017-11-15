@@ -441,12 +441,29 @@
 							var fileName = splttdString.slice(-1);
 							var remoteURL = appConstants.serverURL + "img/" + fileName;
 							var data={};
+							var order = Math.floor((Math.random()*2)+1);
+							if(order==1){
+								data = {palabra1: document.getElementById("pCorrecta3").value, palabra2: document.getElementById("pIncorrecta3").value, correcta: 1, url: remoteURL, pin: getFechaInt()};
+							}
+							else{
+								data = {palabra1: document.getElementById("pIncorrecta3").value, palabra2: document.getElementById("pCorrecta3").value, correcta: 2, url: remoteURL, pin: getFechaInt()};
+							}
+							
+							nivel3.palabras_totales.push(data);
+							localStorage.setItem("Nivel3",JSON.stringify(nivel3));
 						},
 						function(){
 							alert("No se ha subido la imagen");
 						});
 			}
 		};
+		function getFechaInt(){
+			var d = new Date(); 
+			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
+			var fechastring = fecha.join("");
+			var fechaint = parseInt(fechastring);
+			return fechaint;
+		}
 		function addN1(){
 			
 			var order = Math.floor((Math.random()*2)+1);
