@@ -282,7 +282,7 @@
 				if(document.getElementById("radio-alumno-registro-2").checked){
 					//DOCENTE
 					var db = window.openDatabase("TeachersDB", "1.0", "TeachersDB", 100000);
-					db.transaction();
+					db.transaction(populateDB,errorDB, successDB);
 				}
 				else{
 					alert("Debes marcar el tipo de usuario");
@@ -292,6 +292,12 @@
 		};
 		function populateDB(tx){
 			tx.executeSql('CREATE TABLE IF NOT EXISTS Teachers (id unique, nombre, apellidos, nickname, password)');
+		};
+		function successCB(){
+			
+		};
+		function errorCB(){
+			
 		};
 
 		function logUser(){
