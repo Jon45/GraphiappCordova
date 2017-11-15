@@ -76,6 +76,41 @@ $("#botonNivel5").click(function () {
 	nivel5_start();
 });
 
+$("#botonNivel8").click(function () {
+	nivel8_start();
+});
+
+$(".draggable").draggable({
+	revert : "valid"
+});
+
+$("#nivel8-caja-agudas").droppable({
+	drop: function (event,ui)
+	{
+		var tipoPalabra = $(ui.draggable).attr("acento");
+		nivel8_check_palabra(tipoPalabra,1);
+		$(ui.draggable).css("visibility","hidden");
+	}
+});
+
+$("#nivel8-caja-llanas").droppable({
+	drop: function (event,ui)
+	{
+		var tipoPalabra = $(ui.draggable).attr("acento");
+		nivel8_check_palabra(tipoPalabra,2);
+		$(ui.draggable).css("visibility","hidden");
+	}
+});
+
+$("#nivel8-caja-esdrujulas").droppable({
+	drop: function (event,ui)
+	{
+		var tipoPalabra = $(ui.draggable).attr("acento");
+		nivel8_check_palabra(tipoPalabra,3);
+		$(ui.draggable).css("visibility","hidden");
+	}
+});
+
 $("#regBtn").click(function (){
 	regNewUser();
 });

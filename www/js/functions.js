@@ -230,6 +230,44 @@
 			parent.history.back();
 		};
 
+		function nivel8_start(pin){
+			nivel8.ejercicios = [];
+			nivel8.index=0;
+			nivel8.total=0;
+			nivel8.correctas=0;
+			
+			nivel8.palabras=nivel8.palabras_totales.sort(() => .5 - Math.random()).slice(0,10);
+			
+			nivel8.palabras.forEach(function(palabra,index)
+			{
+				$("#nivel8-palabra-"+(index+1)).html(palabra.palabra);
+				$("#nivel8-palabra-"+(index+1)).attr("acento",palabra.acento);
+				$("#nivel8-palabra-"+(index+1)).css("visibility","visible");
+			})
+			
+			};
+		
+		function nivel8_check_palabra(tipo_palabra,tipo_caja){
+			if (tipo_palabra == tipo_caja)
+			{
+				nivel8.correctas++;
+			}
+			nivel8.index++;
+			nivel8.total++;
+			
+			if (nivel8.total >= nivel8.palabras.length)
+			{
+				nivel8_end();
+			}
+		};
+		
+		function nivel8_end(){
+			studentSessionConstants.resultados8=nivel8.correctas/nivel8.total*10;
+			alert("Tu puntuacion es de " + studentSessionConstants.resultados8);
+			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+			parent.history.back();
+		};
+		
 		function introducirDatosPerfil()
 		{
 			$("#foto_perfil").attr("src",studentSessionConstants.profilePhotoURL);

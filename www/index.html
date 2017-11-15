@@ -3,6 +3,8 @@
     <head>
     	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="js/jquery-ui.min.js"></script>
+    	<script src="js/jquery.ui.touch-punch.min.js"></script>
     	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -295,7 +297,7 @@
 				<div data-role="controlgroup" data-type="horizontal">
 					<a href="#nivel4" id="botonNivel4" class="ui-btn ui-corner-all">NIVEL4</a>
 					<a href="#nivel5" id="botonNivel5" class="ui-btn ui-corner-all">NIVEL5</a>
-					<a href="#nivel8" class="ui-btn ui-corner-all">NIVEL8</a>
+					<a href="#nivel8" id="botonNivel8" class="ui-btn ui-corner-all">NIVEL8</a>
 				</div>
 			</div>
 		</div>
@@ -366,18 +368,44 @@
 			</div>
 			<div data-role="content">
 				<h2>Relaciona las palabras según su tipo</h2>
-				<div class="ui-grid-b">
-					<div class="ui-block-a"><button class=ui-btn>Palabra1</button></div>
-					<div class="ui-block-b"><button class=ui-btn>Palabra2</button></div>
-					<div class="ui-block-c"><button class=ui-btn>Palabra3</button></div>
-					<div class="ui-block-a"><button class=ui-btn>Palabra4</button></div>
-					<div class="ui-block-b"><button class=ui-btn>Palabra5</button></div>
-					<div class="ui-block-c"><button class=ui-btn>Palabra6</button></div>
+				<div style="margin-bottom:10%">
+				<span id="nivel8-palabra-1" class="ui-widget-content draggable">
+				</span>
+				<span id="nivel8-palabra-2" class="ui-widget-content draggable">
+				</span>
+				<span id="nivel8-palabra-3" class="ui-widget-content draggable">
+				</span>
 				</div>
-				<div class="ui-grid-b">
-					<div class="ui-block-a"><button class=ui-btn>Aguda</button></div>
-					<div class="ui-block-b"><button class=ui-btn>Llana</button></div>
-					<div class="ui-block-c"><button class=ui-btn>Esdrújula</button></div>
+				<div style="margin-bottom:10%">
+				<span id="nivel8-palabra-4" class="ui-widget-content draggable">
+				</span>
+				<span id="nivel8-palabra-5" class="ui-widget-content draggable">
+				</span>
+				<span id="nivel8-palabra-6" class="ui-widget-content draggable">
+				</span>
+				</div>
+				<div style="margin-bottom:10%">
+				<span id="nivel8-palabra-7" class="ui-widget-content draggable">
+				</span>
+				<span id="nivel8-palabra-8" class="ui-widget-content draggable">
+				</span>
+				<span id="nivel8-palabra-9" class="ui-widget-content draggable">
+				</span>
+				</div>
+				<div style="margin-bottom:10%">
+				<span id="nivel8-palabra-10" class="ui-widget-content draggable">
+				</span>
+				</div>
+				<div style="margin-bottom:10%">
+				<span id="nivel8-caja-agudas" class="ui-widget-content droppable">
+					Aguda
+				</span>
+				<span id="nivel8-caja-llanas" class="ui-widget-content droppable">
+					Llana
+				</span>
+				<span id="nivel8-caja-esdrujulas" class="ui-widget-content droppable">
+				  	Esdrújula
+				</span>
 				</div>
 			</div>
 		</div>
