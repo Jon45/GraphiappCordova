@@ -381,7 +381,7 @@
 			
 			var data= {fecha: fechaint,
 					tematica: document.getElementById("classTheme").value,
-					loginDocente: sessionConstants.nickname};
+					loginDocente: teacherSessionConstants.nickname};
 			
 			$.ajax({
 				url: appConstants.registerClassURL,
@@ -390,7 +390,7 @@
 				contentType: "application/json",
 				dataType:"text",
 				success: function(result) {
-					sessionConstants.idClase = result;
+					teacherSessionConstants.idClase = result;
 					location.href="#postNivel1";
 				},
 				error: function(result){
@@ -453,8 +453,8 @@
 				fileUtilities.uploadFileAsync(urlLocal, "audio", appConstants.uploadFileURL,
 						function(){
 							var remoteURL = appConstants.serverURL + "audio/" + document.getElementById("palabraTilde").value + ".3gp";
-							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value), clase: sessionConstants.idClase},
-									  login: sessionConstants.nickname,
+							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value), clase: teacherSessionConstants.idClase},
+									  login: teacherSessionConstants.nickname,
 									  url: remoteURL};
 							$.ajax({
 								url : appConstants.postNivel2URL,
@@ -518,14 +518,14 @@
 			var order = Math.floor((Math.random()*2)+1);
 			var data; 
 			if(order==1){
-				data = {nivel1JSON: {correcta: 1, palabra1: document.getElementById("pCorrecta").value, palabra2: document.getElementById("pIncorrecta").value, clase: parseInt(sessionConstants.idClase)},
+				data = {nivel1JSON: {correcta: 1, palabra1: document.getElementById("pCorrecta").value, palabra2: document.getElementById("pIncorrecta").value, clase: parseInt(teacherSessionConstants.idClase)},
 						
-						login: sessionConstants.nickname};
+						login: teacherSessionConstants.nickname};
 			}
 			else{
-				data = {nivel1JSON: {correcta: 2, palabra1: document.getElementById("pIncorrecta").value, palabra2: document.getElementById("pCorrecta").value, clase: parseInt(sessionConstants.idClase)},
+				data = {nivel1JSON: {correcta: 2, palabra1: document.getElementById("pIncorrecta").value, palabra2: document.getElementById("pCorrecta").value, clase: parseInt(teacherSessionConstants.idClase)},
 						
-						login: sessionConstants.nickname};
+						login: teacherSessionConstants.nickname};
 			}
 			
 			$.ajax({
