@@ -85,7 +85,8 @@ $("#botonNivel8").click(function () {
 });
 
 $(".draggable").draggable({
-	revert : "valid"
+	revert : "valid",
+	containment : "#containment"
 });
 
 $("#nivel8-caja-agudas").droppable({
