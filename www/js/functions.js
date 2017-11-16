@@ -1,11 +1,32 @@
-		function nivel1_start(pin){
+		function comenzarModoIndividual()
+		{
+			claseVirtual.pin = -1;
+		}
+
+		function comenzarClaseVirtual()
+		{
+			claseVirtual.pin = parseInt($("#input-pin").val());
+			nivel1_start();
+			$.mobile.navigate("#nivel1");
+		}
+		
+		function terminarClaseVirtual()
+		{
+			/*data = {};
+			$.post('script.php', data, function(response) {
+			}, 'json');
+			alert("Las puntuaciones han sido subidas al servidor");*/
+			$.mobile.navigate("#claseVirtual");
+		}
+
+		function nivel1_start(){
 			nivel1.palabras = [];
 			$("#nivel1-palabra-1").html("Palabra 1");
 			$("#nivel1-palabra-2").html("Palabra 2");
 			nivel1.index=0;
 			nivel1.total=0;
 			nivel1.correctas=0;
-			$.getJSON(appConstants.ejerciciosNivel1URL,{nickname: studentSessionConstants.nickname,pin: pin},function( data ) {
+			$.getJSON(appConstants.ejerciciosNivel1URL,{nickname: studentSessionConstants.nickname,pin: claseVirtual.pin},function( data ) {
 				nivel1.palabras=data.nivel1;
 				$("#nivel1-palabra-1").html(nivel1.palabras[0].palabra1);
 				$("#nivel1-palabra-2").html(nivel1.palabras[0].palabra2);
@@ -33,19 +54,30 @@
 		};
 		
 		function nivel1_end(){
-			studentSessionConstants.resultados1=nivel1.correctas/nivel1.total*10;
-			alert("Tu puntuacion es de " + studentSessionConstants.resultados1);
-			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-			parent.history.back();
+			var puntuacion = nivel1.correctas/nivel1.total*10;
+			alert("Tu puntuacion es de " + puntuacion);
+			if (claseVirtual.pin === -1)
+			{
+				studentSessionConstants.resultados1=puntuacion;
+				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				parent.history.back();
+			}
+			
+			else
+			{
+				claseVirtual.puntuacionNivel1 = puntuacion;
+				nivel2_start();
+				$.mobile.navigate("#nivel2");
+			}
 		};
 		
-		function nivel2_start(pin){
+		function nivel2_start(){
 			nivel2.palabras = [];
 			nivel2.index=0;
 			nivel2.total=0;
 			nivel2.correctas=0;
 			$("#nivel2-letras").empty();
-			$.getJSON(appConstants.ejerciciosNivel2URL,{nickname: studentSessionConstants.nickname,pin: pin},function( data ) {
+			$.getJSON(appConstants.ejerciciosNivel2URL,{nickname: studentSessionConstants.nickname,pin: claseVirtual.pin},function( data ) {
 				nivel2.palabras=data.nivel2;
 				var index=0;
 				nivel2.palabras[0].palabra.split('').forEach(function(letra) {
@@ -88,18 +120,42 @@
 		};
 		
 		function nivel2_end(){
-			studentSessionConstants.resultados2=nivel2.correctas/nivel2.total*10;
-			alert("Tu puntuacion es de " + studentSessionConstants.resultados2);
-			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-			parent.history.back();
+			var puntuacion = nivel2.correctas/nivel2.total*10;
+			alert("Tu puntuacion es de " + puntuacion);
+			if (claseVirtual.pin === -1)
+			{
+				studentSessionConstants.resultados2=puntuacion;
+				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				parent.history.back();
+			}
+			
+			else
+			{
+				claseVirtual.puntuacionNivel2 = puntuacion;
+				nivel3_start();
+				$.mobile.navigate("#nivel3");
+			}
 		};
 
-		function nivel3_start(pin){
+		function nivel3_start(){
 			nivel3.palabras = [];
 			nivel3.index=0;
 			nivel3.total=0;
 			nivel3.correctas=0;
-			nivel3.palabras=nivel3.palabras_totales.sort(() => .5 - Math.random()).slice(0,10); //TODO: Tener en cuenta pin
+			if (claseVirtual.pin === -1)
+			{
+				nivel3.palabras=nivel3.palabras_totales.sort(() => .5 - Math.random()).slice(0,10);
+			}
+			else
+			{
+				nivel3.palabras_totales.forEach(function(palabra)
+				{
+					if (palabra.pin === claseVirtual.pin)
+					{
+						nivel3.palabras.push(palabra);
+					}
+				})
+			}
 			$("#nivel3-palabra-1").html(nivel3.palabras[0].palabra1);
 			$("#nivel3-palabra-2").html(nivel3.palabras[0].palabra2);
 			$("#nivel3-imagen").attr("src",nivel3.palabras[0].urlImagen);
@@ -125,19 +181,43 @@
 		};
 
 		function nivel3_end(){
-			studentSessionConstants.resultados3=nivel3.correctas/nivel3.total*10;
-			alert("Tu puntuacion es de " + studentSessionConstants.resultados3);
-			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-			parent.history.back();
+			var puntuacion = nivel3.correctas/nivel3.total*10;
+			alert("Tu puntuacion es de " + puntuacion);
+			if (claseVirtual.pin === -1)
+			{
+				studentSessionConstants.resultados3=puntuacion;
+				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				parent.history.back();
+			}
+			
+			else
+			{
+				claseVirtual.puntuacionNivel3 = puntuacion;
+				nivel4_start();
+				$.mobile.navigate("#nivel4");
+			}
 		};
 
-		function nivel4_start(pin){
+		function nivel4_start(){
 			nivel4.titulares = [];
 			nivel4.index=0;
 			nivel4.total=0;
 			nivel4.correctas=0;
 			$("#nivel4-palabras").empty();
-			nivel4.titulares=nivel4.titulares_totales.sort(() => .5 - Math.random()).slice(0,10);
+			if (claseVirtual.pin === -1)
+			{
+				nivel4.titulares=nivel4.titulares_totales.sort(() => .5 - Math.random()).slice(0,10);
+			}
+			else
+			{
+				nivel4.titulares_totales.forEach(function(titular)
+				{
+					if (titular.pin === claseVirtual.pin)
+					{
+						nivel4.titulares.push(titular);
+					}
+				})
+			}
 				var index=0;
 				nivel4.titulares[0].titular.split(' ').forEach(function(palabra) {
 					index++;
@@ -168,13 +248,24 @@
 		};
 
 		function nivel4_end(){
-			studentSessionConstants.resultados4=nivel4.correctas/nivel4.total*10;
-			alert("Tu puntuacion es de " + studentSessionConstants.resultados4);
-			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-			parent.history.back();
+			var puntuacion = nivel4.correctas/nivel4.total*10;
+			alert("Tu puntuacion es de " + puntuacion);
+			if (claseVirtual.pin === -1)
+			{
+				studentSessionConstants.resultados4=puntuacion;
+				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				parent.history.back();
+			}
+			
+			else
+			{
+				claseVirtual.puntuacionNivel4 = puntuacion;
+				nivel5_start();
+				$.mobile.navigate("#nivel5");
+			}
 		};
 		
-		function nivel5_start(pin){
+		function nivel5_start(){
 			nivel5.ejercicios = [];
 			nivel5.index=0;
 			nivel5.total=0;
@@ -184,7 +275,21 @@
 			$("#nivel5-frase-1").empty();
 			$("#nivel5-frase-2").empty();
 			
-			nivel5.ejercicios=nivel5.ejercicios_totales.sort(() => .5 - Math.random()).slice(0,10);
+			if (claseVirtual.pin === -1)
+			{
+				nivel5.ejercicios=nivel5.ejercicios_totales.sort(() => .5 - Math.random()).slice(0,10);
+			}
+			else
+			{
+				nivel5.ejercicios_totales.forEach(function(ejercicio)
+				{
+					if (ejercicio.pin === claseVirtual.pin)
+					{
+						nivel5.ejercicios.push(ejercicio);
+					}
+				})
+			}
+			
 			nivel5IntroducirPalabras(nivel5.index);
 			nivel5CambiarFrase(nivel5.ejercicios[0].frase1,1);
 			nivel5CambiarFrase(nivel5.ejercicios[0].frase2,2);
@@ -234,19 +339,43 @@
 		}
 		
 		function nivel5_end(){
-			studentSessionConstants.resultados5=nivel5.correctas/nivel5.total*10;
-			alert("Tu puntuacion es de " + studentSessionConstants.resultados5);
-			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-			parent.history.back();
+			var puntuacion = nivel5.correctas/nivel5.total*10;
+			alert("Tu puntuacion es de " + puntuacion);
+			if (claseVirtual.pin === -1)
+			{
+				studentSessionConstants.resultados5=puntuacion;
+				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				parent.history.back();
+			}
+			
+			else
+			{
+				claseVirtual.puntuacionNivel5 = puntuacion;
+				nivel8_start();
+				$.mobile.navigate("#nivel8");
+			}
 		};
 
-		function nivel8_start(pin){
+		function nivel8_start(){
 			nivel8.ejercicios = [];
 			nivel8.index=0;
 			nivel8.total=0;
 			nivel8.correctas=0;
 			
-			nivel8.palabras=nivel8.palabras_totales.sort(() => .5 - Math.random()).slice(0,10);
+			if (claseVirtual.pin === -1)
+			{
+				nivel8.palabras=nivel8.palabras_totales.sort(() => .5 - Math.random()).slice(0,10);
+			}
+			else
+			{
+				nivel8.palabras_totales.forEach(function(palabra)
+				{
+					if (palabra.pin === claseVirtual.pin)
+					{
+						nivel8.palabras.push(palabra);
+					}
+				})
+			}
 			
 			nivel8.palabras.forEach(function(palabra,index)
 			{
@@ -272,10 +401,20 @@
 		};
 		
 		function nivel8_end(){
-			studentSessionConstants.resultados8=nivel8.correctas/nivel8.total*10;
-			alert("Tu puntuacion es de " + studentSessionConstants.resultados8);
-			localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-			parent.history.back();
+			var puntuacion = nivel8.correctas/nivel8.total*10;
+			alert("Tu puntuacion es de " + puntuacion);
+			if (claseVirtual.pin === -1)
+			{
+				studentSessionConstants.resultados8=puntuacion;
+				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				parent.history.back();
+			}
+			
+			else
+			{
+				claseVirtual.puntuacionNivel8 = puntuacion;
+				terminarClaseVirtual();
+			}
 		};
 		
 		function introducirDatosPerfil()

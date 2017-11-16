@@ -49,6 +49,14 @@ $(document).ready(function(){
 	$("studentPanel").enhanceWithin().panel();
 });
 
+$("#boton-modo-individual").click(function() {
+	comenzarModoIndividual();
+});
+
+$("#boton-clase-virtual").click(function() {
+	comenzarClaseVirtual();
+});
+
 $("#botonNivel1").click(function () {
 	nivel1_start();
 });

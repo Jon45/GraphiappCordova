@@ -279,7 +279,7 @@
 				<h1>¡BIENVENIDO USUARIO!</h1>
 			</div>
 			<div data-role="content">
-					<a href="#individual" class="ui-btn ui-corner-all">JUGAR</a>
+					<a href="#modosJuego" class="ui-btn ui-corner-all">JUGAR</a>
 					<a href="#ayuda" class="ui-btn ui-corner-all">AYUDA</a>
 					<a href="#loginPage" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
@@ -295,6 +295,16 @@
 				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
 		</div>
+		<div data-role="page" id="modosJuego">
+			<div data-role="header">
+				<h1>MODOS DE JUEGO</h1>
+			</div>
+			<div data-role="content">
+				<a id="boton-modo-individual" href="#individual" class="ui-btn ui-corner-all">INDIVIDUAL</a>
+				<a href="#claseVirtual" class="ui-btn">CLASE VIRTUAL</a>
+				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
+			</div>
+		</div>
 		<div data-role="page" id="individual">
 			<div data-role="header">
 				<h1>MODO INDIVIDUAL</h1>
@@ -302,7 +312,17 @@
 			<div data-role="content">
 				<a href="#pantallas" class="ui-btn ui-corner-all">COMENZAR</a>
 				<a id="botonPerfil" href="#perfil" class="ui-btn ui-corner-all ui-icon-user ui-btn-icon-left">PERFIL</a>
-				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
+				<a href="#modosJuego" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
+			</div>
+		</div>
+		<div data-role="page" id="claseVirtual">
+			<div data-role="header">
+				<h1>CLASE VIRTUAL</h1>
+			</div>
+			<div data-role="content">
+				<h2>Introduce el pin que deseas utilizar</h2>
+				<input id="input-pin" type="text" />
+				<button id="boton-clase-virtual">Comenzar</button>
 			</div>
 		</div>
 		<div data-role="page" id="pantallas">
