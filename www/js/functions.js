@@ -19,6 +19,28 @@
 			$.mobile.navigate("#claseVirtual");
 		}
 
+		function limitarNiveles()
+		{
+			limitarNivel(studentSessionConstants.resultados1,"#botonNivel2");
+			limitarNivel(studentSessionConstants.resultados2,"#botonNivel3");
+			limitarNivel(studentSessionConstants.resultados3,"#botonNivel4");
+			limitarNivel(studentSessionConstants.resultados4,"#botonNivel5");
+			limitarNivel(studentSessionConstants.resultados5,"#botonNivel8");
+		}
+		
+		function limitarNivel(puntuacion,id)
+		{
+			if (puntuacion < 7)
+			{
+				$(id).prop('disabled', true)
+			}
+			
+			else
+			{
+				$(id).prop('disabled', false);
+			}
+		}
+		
 		function nivel1_start(){
 			nivel1.palabras = [];
 			$("#nivel1-palabra-1").html("Palabra 1");

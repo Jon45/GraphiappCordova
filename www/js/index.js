@@ -57,6 +57,10 @@ $("#boton-clase-virtual").click(function() {
 	comenzarClaseVirtual();
 });
 
+$("a[href='#pantallas']").click(function() {
+	limitarNiveles();
+});
+
 $("#botonNivel1").click(function () {
 	nivel1_start();
 });
