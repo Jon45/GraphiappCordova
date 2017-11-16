@@ -676,6 +676,7 @@
 							
 							nivel3.palabras_totales.push(data);
 							localStorage.setItem("Nivel3",JSON.stringify(nivel3));
+							alert("Se ha subido el ejercicio");
 						},
 						function(){
 							alert("No se ha subido la imagen");
@@ -726,6 +727,7 @@
 			};
 			nivel4.titulares_totales.push(nuevoTitular);
 			localStorage.setItem("Nivel4", JSON.stringify(nivel4));
+			alert("Se ha subido el ejercicio");
 		};
 		function addN5(){
 			var nuevoEjercicio={palabra1: document.getElementById("palabra1").value,
@@ -734,6 +736,7 @@
 					frase2: document.getElementById("frase2").value};
 			nivel5.ejercicios_totales.push(nuevoEjercicio);
 			localStorage.setItem("Nivel5", JSON.stringify(nivel5));
+			alert("Se ha subido el ejercicio");
 		};
 		function addN8(){
 			var nuevoEjercicio={palabra: document.getElementById("palabra1").value, acento: 0};
@@ -750,4 +753,5 @@
 			}
 			nivel8.palabras_totales.push(nuevoEjercicio);
 			localStorage.setItem("Nivel8", JSON.stringify(nivel8));
+			alert("Se ha subido el ejercicio");
 		};
