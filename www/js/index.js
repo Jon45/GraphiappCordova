@@ -160,3 +160,7 @@ $("#btnSubmit5").click(function(){
 $("#btnSubmit8").click(function(){
 	addN8();
 });
+$("#filePicker").change(function(event){
+	var tmppath = URL.createObjectURL(event.target.files[0]);
+	teacherSessionConstants.tempPathN3 = tmppath;
+});

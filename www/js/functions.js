@@ -478,7 +478,10 @@
 			
 		};
 		function addN3(){
-			var localURL = document.getElementById("filePicker").value;
+			
+			var localURL = teacherSessionConstants.tempPathN3;
+			alert(localURL);
+			
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
 				uploadFile=confirm("La subida puede generar gran tráfico de datos");
