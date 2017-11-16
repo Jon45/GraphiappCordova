@@ -52,6 +52,7 @@
 					index++;
 					$("#nivel2-letras").append("<button onclick=nivel2_check_letra("+index+")>"+letra+"</button>");
 				});
+				$("#nivel2-audio").attr("src",nivel2.palabras[0].audio);
 			});
 			};
 			
@@ -74,6 +75,7 @@
 						index++;
 						$("#nivel2-letras").append("<button onclick=nivel2_check_letra("+index+")>"+letra+"</button>");
 					});
+					$("#nivel2-audio").attr("src",nivel2.palabras[nivel2.index].audio);
 				}
 		};
 		
