@@ -141,6 +141,11 @@ $("#botonPerfil").click(function()
 	introducirDatosPerfil();
 });
 
+$("#menu-profile").click(function()
+{
+	introducirDatosPerfil();
+});
+
 $("#foto_perfil").click(function()
 {
 	modificar_foto_perfil();
