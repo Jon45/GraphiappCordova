@@ -572,6 +572,6 @@
 					nuevoEjercicio.acento = 3;
 				}
 			}
-			nivel8.ejercicios_totales.push(nuevoEjercicio);
+			nivel8.palabras_totales.push(nuevoEjercicio);
 			localStorage.setItem("Nivel8", JSON.stringify(nivel8));
 		};
