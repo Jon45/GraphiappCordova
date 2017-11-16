@@ -419,7 +419,7 @@
 		
 		function introducirDatosPerfil()
 		{
-			$("#foto_perfil").attr("src",studentSessionConstants.profilePhotoURL);
+			$("#foto_perfil").attr("src",studentSessionConstants.profilePhotoURL+ "?" + new Date().getTime());
 			$("#perfil-nombre").html(studentSessionConstants.nickname);
 			modificarMeterPerfil(studentSessionConstants.resultados1,"#div-meter-1");
 			modificarMeterPerfil(studentSessionConstants.resultados2,"#div-meter-2");
