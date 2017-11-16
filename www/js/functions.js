@@ -16,6 +16,7 @@
 			$.post('script.php', data, function(response) {
 			}, 'json');
 			alert("Las puntuaciones han sido subidas al servidor");*/
+			alert("Terminado modo clase virtual");
 			$.mobile.navigate("#claseVirtual");
 		}
 
@@ -357,7 +358,7 @@
 		};
 
 		function nivel8_start(){
-			nivel8.ejercicios = [];
+			nivel8.palabras = [];
 			nivel8.index=0;
 			nivel8.total=0;
 			nivel8.correctas=0;
