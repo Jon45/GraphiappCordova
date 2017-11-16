@@ -62,6 +62,10 @@ $("#botonNivel2").click(function () {
 	nivel2_start();
 });
 
+$("#nivel2-audio").click(function() {
+	nivel2_playAudio();
+});
+
 $("#botonNivel3").click(function () {
 	nivel3_start();
 });

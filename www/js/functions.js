@@ -52,10 +52,19 @@
 					index++;
 					$("#nivel2-letras").append("<button onclick=nivel2_check_letra("+index+")>"+letra+"</button>");
 				});
-				$("#nivel2-audio").attr("src",nivel2.palabras[0].audio);
 			});
 			};
 			
+		function nivel2_playAudio()
+		{
+			$("#nivel2-audio").prop("disabled", true);
+			var media = new Media(nivel2.palabras[nivel2.index].audio,function onSuccess () {
+				media.release();
+				$("#nivel2-audio").prop("disabled", false);
+			});
+			media.play();
+		}
+		
 		function nivel2_check_letra(num_letra){
 			if (num_letra === nivel2.palabras[nivel2.index].tildada)
 				{
@@ -75,7 +84,6 @@
 						index++;
 						$("#nivel2-letras").append("<button onclick=nivel2_check_letra("+index+")>"+letra+"</button>");
 					});
-					$("#nivel2-audio").attr("src",nivel2.palabras[nivel2.index].audio);
 				}
 		};
 		
