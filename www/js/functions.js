@@ -519,8 +519,16 @@
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
 						location.href="#userHome";
-						studentSessionConstants.nickname = document.getElementById("nnUser").value;
-						localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+						var data_stored = localStorage.getItem("data_"+data.nickname);
+						if (data_stored != null)
+						{
+							studentSessionConstants = JSON.parse(data_stored);
+						}
+						else
+						{
+							studentSessionConstants.nickname = document.getElementById("nnUser").value;
+							localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+						}
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -530,8 +538,16 @@
 					if(document.getElementById("radio-alumno-login-2").checked){
 						if(result=="0-Docente"){
 							location.href="#homePage";
-							teacherSessionConstants.nickname = document.getElementById("nnUser").value;
-							localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
+							var data_stored = localStorage.getItem("data_"+data.nickname);
+							if (data_stored != null)
+							{
+								teacherSessionConstants = JSON.parse(data_stored);
+							}
+							else
+							{
+								teacherSessionConstants.nickname = document.getElementById("nnUser").value;
+								localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
+							}
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
@@ -544,6 +560,14 @@
 
 			}, "text");	
 		};
+		
+		function logout()
+		{
+			var login = localStorage.getItem("lastLoginUsed");
+			localStorage.setItem("data_"+login,login);
+			localStorage.removeItem("lastLoginUsed");
+			$.mobile.navigate("#loginPage");
+		}
 		
 		function addClass(){
 			var d = new Date(); //Vamos a configurar la fecha para metérsela a la clase

@@ -177,3 +177,9 @@ $("#filePicker").change(function(event){
 	var tmppath = URL.createObjectURL(event.target.files[0]);
 	teacherSessionConstants.tempPathN3 = tmppath;
 });
+$("#menu-logout-s").click(function(){
+	logout();
+});
+$("#menu-logout-t").click(function(){
+	logout();
+});
