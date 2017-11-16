@@ -233,7 +233,8 @@ var appConstants = {
 var teacherSessionConstants = {
 		nickname: "",
 		tipo: 2,
-		idClase: 0
+		idClase: 0,
+		tempPathN3: ""
 		
 };
 
