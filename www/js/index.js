@@ -45,8 +45,8 @@ $(document).on("pagecontainershow", function (event,ui) {
 	pageId = $('body').pagecontainer('getActivePage').prop('id');
 });
 $(document).ready(function(){
-	$("teacherPanel").enhanceWithin().panel();
-	$("studentPanel").enhanceWithin().panel();
+	$("#teacherPanel").enhanceWithin().panel();
+	$("#studentPanel").enhanceWithin().panel();
 });
 
 $("#boton-modo-individual").click(function() {
