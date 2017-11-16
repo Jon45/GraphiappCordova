@@ -304,6 +304,30 @@
 			}
 			$(id).html(html);
 		}
+		
+		function cargarDatosNiveles()
+		{
+			var item = localStorage.getItem("Nivel3");
+			if (item != null)
+				{
+					nivel3 = JSON.parse(item);
+				}
+			item = localStorage.getItem("Nivel4");
+			if (item != null)
+				{
+					nivel4 = JSON.parse(item);
+				}
+			item = localStorage.getItem("Nivel5");
+			if (item != null)
+				{
+					nivel5 = JSON.parse(item);
+				}
+			item = localStorage.getItem("Nivel8");
+			if (item != null)
+				{
+					nivel8 = JSON.parse(item);
+				}
+		}
 
 		function regNewUser(){
 			if(document.getElementById("radio-alumno-registro-1").checked) {

@@ -35,6 +35,7 @@ var app = {
             	location.href="#homePage";
             }
         }
+        cargarDatosNiveles();
     }
 };
 
