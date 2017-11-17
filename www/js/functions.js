@@ -127,7 +127,7 @@
 			{
 				studentSessionConstants.resultados2=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-				parent.history.back();
+				$.mobile.navigate("#pantallas");
 			}
 			
 			else
