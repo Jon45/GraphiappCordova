@@ -471,6 +471,7 @@
 
 		function regNewUser(){
 			if(document.getElementById("radio-alumno-registro-1").checked) {
+				//ALUMNO
 				var data = {nombre: document.getElementById("nUser").value,
 						apellidos: document.getElementById("apUser").value,
 						password: document.getElementById("pswdUser").value};
@@ -493,8 +494,23 @@
 			else{
 				if(document.getElementById("radio-alumno-registro-2").checked){
 					//DOCENTE
-					var db = window.openDatabase("TeachersDB", "1.0", "TeachersDB", 100000);
-					db.transaction(populateDB,errorDB, successDB);
+					var data = {nombre: document.getElementById("nUser").value,
+							apellidos: document.getElementById("apUser").value,
+							password: document.getElementById("pswdUser").value};
+					$.ajax({
+						url: appConstants.registerTeacherURL,
+						type: "post",
+						data: JSON.stringify(data),
+						contentType: "application/json",
+						dataType: "text",
+						success: function(result){
+							alert(result);
+							location.href="#loginPage";
+						},
+						error: function(result){
+							alert("No se ha podido registrar al nuevo usuario correctamente");
+						}
+					});
 				}
 				else{
 					alert("Debes marcar el tipo de usuario");
@@ -502,15 +518,7 @@
 			}
 			
 		};
-		function populateDB(tx){
-			tx.executeSql('CREATE TABLE IF NOT EXISTS Teachers (id unique, nombre, apellidos, nickname, password)');
-		};
-		function successCB(){
-			
-		};
-		function errorCB(){
-			
-		};
+		
 
 		function logUser(){
 			
