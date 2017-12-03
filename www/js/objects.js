@@ -187,6 +187,9 @@ var appConstants = {
 	get registerUserURL(){
 		return this.serverURL + "rest/GraphiApp/registerUser";
 	},
+	get registerTeacherURL(){
+		return this.serverURL + "rest/GraphiApp/registerTeacher";
+	},
 	get loginUserURL(){
 		return this.serverURL + "rest/GraphiApp/loginUser";
 	},
