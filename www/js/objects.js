@@ -214,6 +214,9 @@ var appConstants = {
 	get registerClassURL(){
 		return this.serverURL + "rest/GraphiApp/registerClass";
 	},
+	get getClassURL(){
+		return this.serverURL + "rest/GraphiApp/getClass";
+	},
 	get imageURL(){
 		return this.serverURL + "img/"
 	},
