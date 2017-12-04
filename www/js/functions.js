@@ -658,14 +658,16 @@
 		};
 		function addN2(){
 			//Parte de subir el audio
-			var urlLocal = appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
+			var urlLocal = "file://"+ appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
 				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			
 			if(uploadFile==true){
-				fileUtilities.uploadFileAsync(urlLocal, "audio", appConstants.uploadFileURL,
+
+				var fileName = document.getElementById("palabraTilde").value + ".3gp";
+				fileUtilities.uploadFileAsync(urlLocal, fileName, "audio", appConstants.uploadFileURL,
 						function(){
 							var remoteURL = appConstants.serverURL + "audio/" + document.getElementById("palabraTilde").value + ".3gp";
 							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value), clase: teacherSessionConstants.idClase},
@@ -692,30 +694,23 @@
 			}
 			
 		};
-		function addN3(){
-			
-			var localURL = teacherSessionConstants.tempPathN3;
-			
-			
-			alert(localURL);
-			
+		function uploadCallback(fileName,localURL){
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
 				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			if(uploadFile==true){
-				fileUtilities.uploadFileAsync(localURL, "img", appConstants.uploadFileURL,
+				
+				fileUtilities.uploadFileAsync(localURL, fileName,"img", appConstants.uploadFileURL,
 						function(){
-							var splttdStr = localURL.split("/");
-							var fileName = splttdString.slice(-1);
 							var remoteURL = appConstants.serverURL + "img/" + fileName;
 							var data={};
 							var order = Math.floor((Math.random()*2)+1);
 							if(order==1){
-								data = {palabra1: document.getElementById("pCorrecta3").value, palabra2: document.getElementById("pIncorrecta3").value, correcta: 1, url: remoteURL, pin: getFechaInt()};
+								data = {palabra1: document.getElementById("pCorrecta3").value, palabra2: document.getElementById("pIncorrecta3").value, correcta: 1, urlImagen: remoteURL, pin: getFechaInt()};
 							}
 							else{
-								data = {palabra1: document.getElementById("pIncorrecta3").value, palabra2: document.getElementById("pCorrecta3").value, correcta: 2, url: remoteURL, pin: getFechaInt()};
+								data = {palabra1: document.getElementById("pIncorrecta3").value, palabra2: document.getElementById("pCorrecta3").value, correcta: 2, urlImagen: remoteURL, pin: getFechaInt()};
 							}
 							
 							nivel3.palabras_totales.push(data);
@@ -726,6 +721,17 @@
 							alert("No se ha subido la imagen");
 						});
 			}
+		};
+		function addN3(){
+			
+			var fileName = document.getElementById("filePicker").files[0].name;
+			var fileReader = new FileReader();
+			
+			fileReader.onloadend = function(){
+				var localURL = fileReader.result;
+				uploadCallback(fileName,localURL);
+			};
+			fileReader.readAsDataURL(document.getElementById("filePicker").files[0]);
 		};
 		function getFechaInt(){
 			var d = new Date(); 

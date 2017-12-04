@@ -296,10 +296,8 @@ var fileUtilities = {
 				}
 			);		
 		},
-		uploadFileAsync: function(sourceFullPath,fileType,uploadFileServiceURL,onSuccess,onError) {
+		uploadFileAsync: function(fileURL,fileName,fileType,uploadFileServiceURL,onSuccess,onError) {
 
-			var fileURL="file://"+sourceFullPath;
-			var fileName=sourceFullPath.substring(sourceFullPath.lastIndexOf("/")+1);
 			var options = new FileUploadOptions();
 			options.fileKey = "file";
 			options.mimeType = "multipart/form-data";
