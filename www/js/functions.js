@@ -558,7 +558,7 @@
 								localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
 							}
 							var clases = [];
-							$getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
+							$.getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
 									function(data){
 								clases = data.listaClases;
 								for(i = 0; i<clases.length;i++){
