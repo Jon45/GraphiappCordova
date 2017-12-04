@@ -557,6 +557,15 @@
 								teacherSessionConstants.nickname = document.getElementById("nnUser").value;
 								localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
 							}
+							var clases = [];
+							$getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
+									function(data){
+								clases = data.listaClases;
+								for(i = 0; i<clases.length;i++){
+									html = "<a href=\"\" id=\"classBtn-"+i+"\" class=\"ui-btn ui-corner-all\">"+clases[i].tematica+"</a>"
+									$(html).appendTo($("#listClasses"));
+								}
+							});
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
@@ -686,6 +695,8 @@
 		function addN3(){
 			
 			var localURL = teacherSessionConstants.tempPathN3;
+			
+			
 			alert(localURL);
 			
 			var uploadFile = true;
@@ -693,7 +704,7 @@
 				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			if(uploadFile==true){
-				fileUtilities.uploadFileAsync(localURL, "image", appConstants.uploadFileURL,
+				fileUtilities.uploadFileAsync(localURL, "img", appConstants.uploadFileURL,
 						function(){
 							var splttdStr = localURL.split("/");
 							var fileName = splttdString.slice(-1);
