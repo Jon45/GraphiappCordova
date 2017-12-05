@@ -807,3 +807,22 @@
 			localStorage.setItem("Nivel8", JSON.stringify(nivel8));
 			alert("Se ha subido el ejercicio");
 		};
+		function listResults(tematica){
+			var resultados = [];
+			
+			
+			$.getJSON(appConstants.getResultsURL, {nickname: teacherSessionConstants.nickname, tematica: tematica},
+					function(data){
+				resultados = data.listaResultadoJSON;
+				location.href = "#seeCalifications";
+				var initTag = "<table>";
+				var endTag = "</table>";
+				var html = "";
+				for(i = 0; i<resultados.length;i++){
+					html+="<tr><td>"+resultados[i].alumno+"</td><td>"+resultados[i].puntosNivel1+"</td><td>"+resultados[i].puntosNivel2+"</td><td>"+resultados[i].puntosNivel3+"</td><td>"+resultados[i].puntosNivel4+"</td><td>"+resultados[i].puntosNivel5+"</td><td>"+resultados[i].puntosNivel8+"</td></tr>";
+				}
+				var tContent = initTag + html + endTag+"<a href=\"#homePage\" class=\"ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l\">ATRÁS</a>"
+				$("#calificationsConten").html(tContent);
+				$("#calificationsHeader").html("CALIFICACIONES DE"+tematica);
+			});
+		};
