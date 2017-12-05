@@ -611,7 +611,7 @@
 		
 		function addClass(){
 			var d = new Date(); //Vamos a configurar la fecha para metérsela a la clase
-			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
+			var fecha = [d.getFullYear(), d.getMonth(), d.getDate(), d.getHours()];
 			var fechastring = fecha.join("");
 			
 			var fechaint = parseInt(fechastring);
@@ -757,7 +757,7 @@
 		};
 		function getFechaInt(){
 			var d = new Date(); 
-			var fecha = [d.getFullYear(), d.getMonth(), d.getDate()];
+			var fecha = [d.getFullYear(), d.getMonth(), d.getDate(),d.getHours()];
 			var fechastring = fecha.join("");
 			var fechaint = parseInt(fechastring);
 			return fechaint;
@@ -795,7 +795,8 @@
 		function addN4(){
 			
 			var nuevoTitular = {titular: document.getElementById("titular").value,
-				incorrecta: parseInt(document.getElementById("posPInc").value)	
+				incorrecta: parseInt(document.getElementById("posPInc").value),
+				pin: getFechaInt()
 			};
 			nivel4.titulares_totales.push(nuevoTitular);
 			localStorage.setItem("Nivel4", JSON.stringify(nivel4));
@@ -805,13 +806,14 @@
 			var nuevoEjercicio={palabra1: document.getElementById("palabra1").value,
 					palabra2: document.getElementById("palabra2").value,
 					frase1: document.getElementById("frase1").value,
-					frase2: document.getElementById("frase2").value};
+					frase2: document.getElementById("frase2").value,
+					pin: getFechaInt()};
 			nivel5.ejercicios_totales.push(nuevoEjercicio);
 			localStorage.setItem("Nivel5", JSON.stringify(nivel5));
 			alert("Se ha subido el ejercicio");
 		};
 		function addN8(){
-			var nuevoEjercicio={palabra: document.getElementById("palabra1").value, acento: 0};
+			var nuevoEjercicio={palabra: document.getElementById("palabra1").value, acento: 0, pin: getFechaInt()};
 			if(document.getElementById("radio1").checked){
 				nuevoEjercicio.acento = 1;
 			}
