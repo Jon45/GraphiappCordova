@@ -193,3 +193,6 @@ $("#menu-logout-s").click(function(){
 $("#menu-logout-t").click(function(){
 	logout();
 });
+$("#acabaPostBtn").click(function(){
+	mostrarClases();
+})
