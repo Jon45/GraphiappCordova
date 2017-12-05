@@ -12,12 +12,33 @@
 		
 		function terminarClaseVirtual()
 		{
-			/*data = {};
-			$.post('script.php', data, function(response) {
-			}, 'json');
-			alert("Las puntuaciones han sido subidas al servidor");*/
-			alert("Terminado modo clase virtual");
-			$.mobile.navigate("#claseVirtual");
+			var data = {
+			puntosNivel1:claseVirtual.puntuacion1,
+			puntosNivel2:claseVirtual.puntuacion2,
+			puntosNivel3:claseVirtual.puntuacion3,
+			puntosNivel4:claseVirtual.puntuacion4,
+			puntosNivel5:claseVirtual.puntuacion5,
+			puntosNivel8:claseVirtual.puntuacion8,
+			fecha:claseVirtual.pin,
+			alumno:studentSessionConstants.nickname};
+			
+			$.ajax({
+				url: appConstants.postResultURL,
+				type: "post",
+				data: JSON.stringify(data),
+				contentType: "application/json",
+				dataType: "text",
+				success: function(result){
+					alert("Las puntuaciones han sido subidas al servidor");
+				},
+				error: function(result){
+					alert ("Las puntuaciones no se han podido subir al servidor");
+				},
+				complete: function(){
+					alert("Terminado modo clase virtual");
+					$.mobile.navigate("#claseVirtual");
+				}
+			});
 		}
 
 		function limitarNiveles()
@@ -88,7 +109,7 @@
 			
 			else
 			{
-				claseVirtual.puntuacionNivel1 = puntuacion;
+				claseVirtual.puntuacion1 = puntuacion;
 				nivel2_start();
 				$.mobile.navigate("#nivel2");
 			}
@@ -154,7 +175,7 @@
 			
 			else
 			{
-				claseVirtual.puntuacionNivel2 = puntuacion;
+				claseVirtual.puntuacion2 = puntuacion;
 				nivel3_start();
 				$.mobile.navigate("#nivel3");
 			}
@@ -215,7 +236,7 @@
 			
 			else
 			{
-				claseVirtual.puntuacionNivel3 = puntuacion;
+				claseVirtual.puntuacion3 = puntuacion;
 				nivel4_start();
 				$.mobile.navigate("#nivel4");
 			}
@@ -282,7 +303,7 @@
 			
 			else
 			{
-				claseVirtual.puntuacionNivel4 = puntuacion;
+				claseVirtual.puntuacion4 = puntuacion;
 				nivel5_start();
 				$.mobile.navigate("#nivel5");
 			}
@@ -373,7 +394,7 @@
 			
 			else
 			{
-				claseVirtual.puntuacionNivel5 = puntuacion;
+				claseVirtual.puntuacion5 = puntuacion;
 				nivel8_start();
 				$.mobile.navigate("#nivel8");
 			}
@@ -435,7 +456,7 @@
 			
 			else
 			{
-				claseVirtual.puntuacionNivel8 = puntuacion;
+				claseVirtual.puntuacion8 = puntuacion;
 				terminarClaseVirtual();
 			}
 		};
