@@ -192,7 +192,3 @@ $("#menu-logout-s").click(function(){
 $("#menu-logout-t").click(function(){
 	logout();
 });
-$("[id|='classBtn']").click(function(){
-	var tematica = $(this).html();
-	listResults(tematica);
-});

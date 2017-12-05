@@ -605,9 +605,14 @@
 									function(data){
 								clases = data.listaClases;
 								for(i = 0; i<clases.length;i++){
-									html = "<a href=\"\" id=\"classBtn-"+i+"\" class=\"ui-btn ui-corner-all\">"+clases[i].tematica+"</a>"
+									html = "<a href=\"\" id=\"classBtn-"+i+"\" class=\"ui-btn ui-corner-all classBtn\" onclick=\"listResults(" +clases[i].tematica+")\">"+clases[i].tematica+"</a>"
 									$(html).appendTo($("#listClasses"));
 								}
+								
+								$(".classBtn").click(function(){
+									var tematica = $(this).html();
+									listResults(tematica);
+								});
 							});
 						}
 						else{
