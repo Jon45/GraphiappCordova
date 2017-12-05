@@ -16,6 +16,7 @@
 			$.post('script.php', data, function(response) {
 			}, 'json');
 			alert("Las puntuaciones han sido subidas al servidor");*/
+			alert("Terminado modo clase virtual");
 			$.mobile.navigate("#claseVirtual");
 		}
 
@@ -148,7 +149,7 @@
 			{
 				studentSessionConstants.resultados2=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
-				parent.history.back();
+				$.mobile.navigate("#pantallas");
 			}
 			
 			else
@@ -379,7 +380,7 @@
 		};
 
 		function nivel8_start(){
-			nivel8.ejercicios = [];
+			nivel8.palabras = [];
 			nivel8.index=0;
 			nivel8.total=0;
 			nivel8.correctas=0;
@@ -492,6 +493,7 @@
 
 		function regNewUser(){
 			if(document.getElementById("radio-alumno-registro-1").checked) {
+				//ALUMNO
 				var data = {nombre: document.getElementById("nUser").value,
 						apellidos: document.getElementById("apUser").value,
 						password: document.getElementById("pswdUser").value};
@@ -514,8 +516,23 @@
 			else{
 				if(document.getElementById("radio-alumno-registro-2").checked){
 					//DOCENTE
-					var db = window.openDatabase("TeachersDB", "1.0", "TeachersDB", 100000);
-					db.transaction(populateDB,errorDB, successDB);
+					var data = {nombre: document.getElementById("nUser").value,
+							apellidos: document.getElementById("apUser").value,
+							password: document.getElementById("pswdUser").value};
+					$.ajax({
+						url: appConstants.registerTeacherURL,
+						type: "post",
+						data: JSON.stringify(data),
+						contentType: "application/json",
+						dataType: "text",
+						success: function(result){
+							alert(result);
+							location.href="#loginPage";
+						},
+						error: function(result){
+							alert("No se ha podido registrar al nuevo usuario correctamente");
+						}
+					});
 				}
 				else{
 					alert("Debes marcar el tipo de usuario");
@@ -523,15 +540,7 @@
 			}
 			
 		};
-		function populateDB(tx){
-			tx.executeSql('CREATE TABLE IF NOT EXISTS Teachers (id unique, nombre, apellidos, nickname, password)');
-		};
-		function successCB(){
-			
-		};
-		function errorCB(){
-			
-		};
+		
 
 		function logUser(){
 			
@@ -570,6 +579,15 @@
 								teacherSessionConstants.nickname = document.getElementById("nnUser").value;
 								localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
 							}
+							var clases = [];
+							$.getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
+									function(data){
+								clases = data.listaClases;
+								for(i = 0; i<clases.length;i++){
+									html = "<a href=\"\" id=\"classBtn-"+i+"\" class=\"ui-btn ui-corner-all\">"+clases[i].tematica+"</a>"
+									$(html).appendTo($("#listClasses"));
+								}
+							});
 						}
 						else{
 							alert("Tipo de usuario incorrecto");
@@ -662,14 +680,16 @@
 		};
 		function addN2(){
 			//Parte de subir el audio
-			var urlLocal = appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
+			var urlLocal = "file://"+ appConstants.localPermanentStorageFolderAudio() + document.getElementById("palabraTilde").value + ".3gp";
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
 				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			
 			if(uploadFile==true){
-				fileUtilities.uploadFileAsync(urlLocal, "audio", appConstants.uploadFileURL,
+
+				var fileName = document.getElementById("palabraTilde").value + ".3gp";
+				fileUtilities.uploadFileAsync(urlLocal, fileName, "audio", appConstants.uploadFileURL,
 						function(){
 							var remoteURL = appConstants.serverURL + "audio/" + document.getElementById("palabraTilde").value + ".3gp";
 							var data={nivel2JSON: {audio: remoteURL, palabra: document.getElementById("palabraTilde").value, tildada: parseInt(document.getElementById("posTilde").value), clase: teacherSessionConstants.idClase},
@@ -696,28 +716,23 @@
 			}
 			
 		};
-		function addN3(){
-			
-			var localURL = teacherSessionConstants.tempPathN3;
-			alert(localURL);
-			
+		function uploadCallback(fileName,localURL){
 			var uploadFile = true;
 			if(navigator.connection.type != Connection.WIFI){
 				uploadFile=confirm("La subida puede generar gran tráfico de datos");
 			}
 			if(uploadFile==true){
-				fileUtilities.uploadFileAsync(localURL, "image", appConstants.uploadFileURL,
+				
+				fileUtilities.uploadFileAsync(localURL, fileName,"img", appConstants.uploadFileURL,
 						function(){
-							var splttdStr = localURL.split("/");
-							var fileName = splttdString.slice(-1);
 							var remoteURL = appConstants.serverURL + "img/" + fileName;
 							var data={};
 							var order = Math.floor((Math.random()*2)+1);
 							if(order==1){
-								data = {palabra1: document.getElementById("pCorrecta3").value, palabra2: document.getElementById("pIncorrecta3").value, correcta: 1, url: remoteURL, pin: getFechaInt()};
+								data = {palabra1: document.getElementById("pCorrecta3").value, palabra2: document.getElementById("pIncorrecta3").value, correcta: 1, urlImagen: remoteURL, pin: getFechaInt()};
 							}
 							else{
-								data = {palabra1: document.getElementById("pIncorrecta3").value, palabra2: document.getElementById("pCorrecta3").value, correcta: 2, url: remoteURL, pin: getFechaInt()};
+								data = {palabra1: document.getElementById("pIncorrecta3").value, palabra2: document.getElementById("pCorrecta3").value, correcta: 2, urlImagen: remoteURL, pin: getFechaInt()};
 							}
 							
 							nivel3.palabras_totales.push(data);
@@ -728,6 +743,17 @@
 							alert("No se ha subido la imagen");
 						});
 			}
+		};
+		function addN3(){
+			
+			var fileName = document.getElementById("filePicker").files[0].name;
+			var fileReader = new FileReader();
+			
+			fileReader.onloadend = function(){
+				var localURL = fileReader.result;
+				uploadCallback(fileName,localURL);
+			};
+			fileReader.readAsDataURL(document.getElementById("filePicker").files[0]);
 		};
 		function getFechaInt(){
 			var d = new Date(); 

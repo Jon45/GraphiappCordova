@@ -187,6 +187,9 @@ var appConstants = {
 	get registerUserURL(){
 		return this.serverURL + "rest/GraphiApp/registerUser";
 	},
+	get registerTeacherURL(){
+		return this.serverURL + "rest/GraphiApp/registerTeacher";
+	},
 	get loginUserURL(){
 		return this.serverURL + "rest/GraphiApp/loginUser";
 	},
@@ -210,6 +213,9 @@ var appConstants = {
 	},
 	get registerClassURL(){
 		return this.serverURL + "rest/GraphiApp/registerClass";
+	},
+	get getClassURL(){
+		return this.serverURL + "rest/GraphiApp/getClass";
 	},
 	get imageURL(){
 		return this.serverURL + "img/"
@@ -290,10 +296,8 @@ var fileUtilities = {
 				}
 			);		
 		},
-		uploadFileAsync: function(sourceFullPath,fileType,uploadFileServiceURL,onSuccess,onError) {
+		uploadFileAsync: function(fileURL,fileName,fileType,uploadFileServiceURL,onSuccess,onError) {
 
-			var fileURL="file://"+sourceFullPath;
-			var fileName=sourceFullPath.substring(sourceFullPath.lastIndexOf("/")+1);
 			var options = new FileUploadOptions();
 			options.fileKey = "file";
 			options.mimeType = "multipart/form-data";
