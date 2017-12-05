@@ -562,7 +562,22 @@
 			
 		};
 		
-
+		function mostrarClases(){
+			var clases = [];
+			$.getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
+					function(data){
+				clases = data.listaClases;
+				for(i = 0; i<clases.length;i++){
+					html = "<a href=\"\" id=\"classBtn-"+i+"\" class=\"ui-btn ui-corner-all classBtn\" onclick=\"listResults(" +clases[i].tematica+")\">"+clases[i].tematica+"</a>"
+					$(html).appendTo($("#listClasses"));
+				}
+				
+				$(".classBtn").click(function(){
+					var tematica = $(this).html();
+					listResults(tematica);
+				});
+			});
+		};
 		function logUser(){
 			
 			var data={nickname: document.getElementById("nnUser").value,
@@ -600,20 +615,8 @@
 								teacherSessionConstants.nickname = document.getElementById("nnUser").value;
 								localStorage.setItem("lastLoginUsed", JSON.stringify(teacherSessionConstants));
 							}
-							var clases = [];
-							$.getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
-									function(data){
-								clases = data.listaClases;
-								for(i = 0; i<clases.length;i++){
-									html = "<a href=\"\" id=\"classBtn-"+i+"\" class=\"ui-btn ui-corner-all classBtn\" onclick=\"listResults(" +clases[i].tematica+")\">"+clases[i].tematica+"</a>"
-									$(html).appendTo($("#listClasses"));
-								}
-								
-								$(".classBtn").click(function(){
-									var tematica = $(this).html();
-									listResults(tematica);
-								});
-							});
+							mostrarClases();
+							
 						}
 						else{
 							alert("Tipo de usuario incorrecto");

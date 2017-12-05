@@ -33,6 +33,7 @@ var app = {
             else{
             	teacherSessionConstants = currentLogin;
             	location.href="#homePage";
+            	mostrarClases();
             }
         }
         cargarDatosNiveles();
