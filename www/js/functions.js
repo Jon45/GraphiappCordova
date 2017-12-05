@@ -822,7 +822,7 @@
 					html+="<tr><td>"+resultados[i].alumno+"</td><td>"+resultados[i].puntosNivel1+"</td><td>"+resultados[i].puntosNivel2+"</td><td>"+resultados[i].puntosNivel3+"</td><td>"+resultados[i].puntosNivel4+"</td><td>"+resultados[i].puntosNivel5+"</td><td>"+resultados[i].puntosNivel8+"</td></tr>";
 				}
 				var tContent = initTag + html + endTag+"<a href=\"#homePage\" class=\"ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l\">ATRÁS</a>"
-				$("#calificationsConten").html(tContent);
+				$("#calificationsContent").html(tContent);
 				$("#calificationsHeader").html("CALIFICACIONES DE"+tematica);
 			});
 		};
