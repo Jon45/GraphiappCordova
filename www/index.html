@@ -30,13 +30,13 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div data-role="page" id="registerPage">
+        <div data-role="page" id="registerPage" data-theme="a">
         	<div data-role="header">
         		<h1>REGISTRO</h1>
         	</div>
         	<div data-role="content">
         		<form>
-					<fieldset data-role="controlgroup">
+					<fieldset data-role="controlgroup" data-theme="b">
 						<legend>Tipo de usuario</legend>
 						<input name="radio-alumno-registro" id="radio-alumno-registro-1" value="alumno" type="radio" />
 						<label for="radio-alumno-registro-1">Alumno</label>
@@ -59,13 +59,13 @@
         	</div>
         	<div data-role="footer" data-position="fixed"></div>	
         </div>
-        <div data-role="page" id="loginPage">
+        <div data-role="page" id="loginPage" data-theme="a">
         <div data-role="header">
         		<h1>INICIA SESIÓN</h1>
         	</div>
         	<div data-role="content">
         		<form action="" method="post">
-        			<fieldset data-role="controlgroup">
+        			<fieldset data-role="controlgroup" data-theme="b">
 						<legend>Tipo de usuario</legend>
 						<input name="radio-alumno-login" id="radio-alumno-login-1" value="alumno" type="radio" />
 						<label for="radio-alumno-login-1">Alumno</label>
@@ -85,7 +85,7 @@
         	</div>
         	<div data-role="footer" data-position="fixed"></div>
         </div>
-        <div data-role="page" id="homePage">
+        <div data-role="page" id="homePage" data-theme="b">
         	<div data-role="header">
         		<h1>CLASES GUARDADAS</h1>
         		<a href="#teacherPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -106,7 +106,7 @@
         	</div>
         	<div data-role="footer" data-position="fixed"></div>
         </div>
-        <div data-role="page" id="seeCalifications">
+        <div data-role="page" id="seeCalifications" data-theme="b">
         	<div data-role="header">
         		<h1 id="calificationsHeader">CALIFICACIONES DE CLASE DE PRUEBA</h1>
        		</div>
@@ -275,7 +275,7 @@
         		</ul>
         	</div>
         </div>
-        <div data-role="page" id="userHome">
+        <div data-role="page" id="userHome" data-theme="c">
 			<div data-role="header">
 				<h1>¡BIENVENIDO USUARIO!</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -304,9 +304,9 @@
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
 			</div>
 			<div data-role="content">
-				<a id="boton-modo-individual" href="#individual" class="ui-btn ui-corner-all">INDIVIDUAL</a>
+				<a id="boton-modo-individual" href="#individual" class="ui-btn ui-corner-all" data-theme="a">INDIVIDUAL</a>
 				<a href="#claseVirtual" class="ui-btn">CLASE VIRTUAL</a>
-				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
+				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l" data-theme="b">ATRÁS</a>
 			</div>
 		</div>
 		<div data-role="page" id="individual">
@@ -331,7 +331,7 @@
 				<button id="boton-clase-virtual">Comenzar</button>
 			</div>
 		</div>
-		<div data-role="page" id="pantallas">
+		<div data-role="page" id="pantallas" data-theme="a">
 			<div data-role="header">
 				<h1>NIVELES</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -350,7 +350,7 @@
 				<a href="#individual" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
 		</div>
-		<div data-role="page" id="nivel1">
+		<div data-role="page" id="nivel1" data-theme="a">
 			<div data-role="header">
 				<h1>NIVEL 1</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -364,7 +364,7 @@
 				<a href="#pantallas" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
 		</div>
-		<div data-role="page" id="nivel2">
+		<div data-role="page" id="nivel2" data-theme="c">
 			<div data-role="header">
 				<h1>NIVEL 2</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -378,7 +378,7 @@
 				<a href="#pantallas" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
 		</div>
-		<div data-role="page" id="nivel3">
+		<div data-role="page" id="nivel3" data-theme="a">
 			<div data-role="header">
 				<h1>NIVEL 3</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -391,7 +391,7 @@
 				<a href="#pantallas" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
 		</div>
-		<div data-role="page" id="nivel4">
+		<div data-role="page" id="nivel4" data-theme="a">
 			<div data-role="header">
 				<h1>NIVEL 4</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -403,7 +403,7 @@
 				<a href="#pantallas" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
 		</div>
-		<div data-role="page" id="nivel5">
+		<div data-role="page" id="nivel5" data-theme="b">
 			<div data-role="header">
 				<h1>NIVEL 5</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -422,7 +422,7 @@
 				</div>
 			</div>
 		</div>
-		<div data-role="page" id="nivel8">
+		<div data-role="page" id="nivel8" data-theme="c">
 			<div data-role="header">
 				<h1>NIVEL 8</h1>
 				<a href="#studentPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all">No text</a>
@@ -482,17 +482,17 @@
 			</div>
 			<div data-role="content">
 				<div class="ui-grid-b">
-					<div class="ui-block-a">Agudas</div>
-					<div class="ui-block-b">Llanas</div>
-					<div class="ui-block-c">Esdrújulas</div>
-					<div class="ui-block-a">Sílaba tónica en último lugar. Llevan tilde cuando terminan en vocal, n, s. Por ejemplo: colibrí, sartén, compás,...</div>
-					<div class="ui-block-b">Sílaba tónica en penúltimo lugar. Llevan tilde cuando no terminan en vocal, n, s. Por ejemplo: cáliz, árbol, túnel,...</div>
-					<div class="ui-block-c">Sílaba tónica en antepenúltimo lugar. Llevan tilde siempre. Por ejemplo: sábado, médico, pájaro,...</div>
+					<div class="ui-block-a" data-theme="b">Agudas</div>
+					<div class="ui-block-b" data-theme="a">Llanas</div>
+					<div class="ui-block-c" data-theme="c">Esdrújulas</div>
+					<div class="ui-block-a" data-theme="b">Sílaba tónica en último lugar. Llevan tilde cuando terminan en vocal, n, s. Por ejemplo: colibrí, sartén, compás,...</div>
+					<div class="ui-block-b" data-theme="a">Sílaba tónica en penúltimo lugar. Llevan tilde cuando no terminan en vocal, n, s. Por ejemplo: cáliz, árbol, túnel,...</div>
+					<div class="ui-block-c" data-theme="c">Sílaba tónica en antepenúltimo lugar. Llevan tilde siempre. Por ejemplo: sábado, médico, pájaro,...</div>
 				</div>
 				<a href="#nivel2" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l" style="width:20%">ATRÁS</a>
 			</div>
 		</div>
-		<div data-role="page" id="perfil">
+		<div data-role="page" id="perfil" data-theme="a">
 			<div data-role="header">
 				<img id="foto_perfil" style="height:64px; width:64px; display:block; margin: auto"/>
 				<h1 id="perfil-nombre">ab001</h1>
