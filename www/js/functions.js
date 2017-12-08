@@ -104,6 +104,7 @@
 			{
 				studentSessionConstants.resultados1=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				limitarNiveles();
 				parent.history.back();
 			}
 			
@@ -170,6 +171,7 @@
 			{
 				studentSessionConstants.resultados2=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				limitarNiveles();
 				$.mobile.navigate("#pantallas");
 			}
 			
@@ -231,6 +233,7 @@
 			{
 				studentSessionConstants.resultados3=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				limitarNiveles();
 				parent.history.back();
 			}
 			
@@ -298,6 +301,7 @@
 			{
 				studentSessionConstants.resultados4=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				limitarNiveles();
 				parent.history.back();
 			}
 			
@@ -389,6 +393,7 @@
 			{
 				studentSessionConstants.resultados5=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				limitarNiveles();
 				parent.history.back();
 			}
 			
@@ -451,6 +456,7 @@
 			{
 				studentSessionConstants.resultados8=puntuacion;
 				localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
+				limitarNiveles();
 				parent.history.back();
 			}
 			

@@ -195,4 +195,14 @@ $("#menu-logout-t").click(function(){
 });
 $("#acabaPostBtn").click(function(){
 	mostrarClases();
-})
+});
+for (const i in [1,2,3,4,5])
+{
+	$("#botonNivel"+i).click(function(){
+		$.mobile.navigate("#nivel"+i);
+	});
+}
+
+$("#botonNivel8").click(function(){
+	$.mobile.navigate("#nivel8");
+});
