@@ -537,6 +537,7 @@
 					success: function (result)
 					{
 						alert(result);
+						$("#regForm")[0].reset();
 						location.href="#loginPage";
 					},
 					error: function (result) {
@@ -558,6 +559,7 @@
 						dataType: "text",
 						success: function(result){
 							alert(result);
+							$("#regForm")[0].reset();
 							location.href="#loginPage";
 						},
 						error: function(result){
@@ -606,6 +608,7 @@
 							studentSessionConstants.nickname = document.getElementById("nnUser").value;
 							localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 						}
+						
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -646,6 +649,7 @@
 			localStorage.setItem("data_"+login,login);
 			localStorage.removeItem("lastLoginUsed");
 			$.mobile.navigate("#loginPage");
+			$("#logForm")[0].reset();
 		}
 		
 		function addClass(){
@@ -666,6 +670,7 @@
 				contentType: "application/json",
 				dataType:"text",
 				success: function(result) {
+					$("#classForm")[0].reset();
 					teacherSessionConstants.idClase = result;
 					location.href="#postNivel1";
 				},
@@ -743,6 +748,7 @@
 								success: function (result)
 								{
 									alert("Añadido correctamente");
+									$("#level2Form")[0].reset();
 								},
 								error: function (result) {
 									alert("No se ha podido añadir correctamente");
@@ -777,6 +783,7 @@
 							nivel3.palabras_totales.push(data);
 							localStorage.setItem("Nivel3",JSON.stringify(nivel3));
 							alert("Se ha subido el ejercicio");
+							$("#level3Form")[0].reset();
 						},
 						function(){
 							alert("No se ha subido la imagen");
@@ -824,6 +831,7 @@
 				dataType: "text",
 				success: function(result){
 					alert("Añadido correctamente");
+					$("#level1Form")[0].reset();
 				},
 				error: function(result){
 					
@@ -840,6 +848,7 @@
 			nivel4.titulares_totales.push(nuevoTitular);
 			localStorage.setItem("Nivel4", JSON.stringify(nivel4));
 			alert("Se ha subido el ejercicio");
+			$("#level4Form")[0].reset();
 		};
 		function addN5(){
 			var nuevoEjercicio={palabra1: document.getElementById("palabra1").value,
@@ -850,6 +859,7 @@
 			nivel5.ejercicios_totales.push(nuevoEjercicio);
 			localStorage.setItem("Nivel5", JSON.stringify(nivel5));
 			alert("Se ha subido el ejercicio");
+			$("#level5Form")[0].reset();
 		};
 		function addN8(){
 			var nuevoEjercicio={palabra: document.getElementById("palabra1").value, acento: 0, pin: getFechaInt()};
@@ -867,6 +877,7 @@
 			nivel8.palabras_totales.push(nuevoEjercicio);
 			localStorage.setItem("Nivel8", JSON.stringify(nivel8));
 			alert("Se ha subido el ejercicio");
+			$("#level8Form")[0].reset();
 		};
 		function listResults(tematica){
 			var resultados = [];
