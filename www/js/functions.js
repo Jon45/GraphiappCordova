@@ -54,12 +54,16 @@
 		{
 			if (puntuacion < 7)
 			{
-				$(id).prop('disabled', true)
+				$(id).prop('disabled', true);
+				$(id).removeClass("ui-btn-b").addClass("ui-btn-a");
+				$(id).removeClass("ui-icon-unlock-alt").addClass("ui-icon-lock");
 			}
 			
 			else
 			{
 				$(id).prop('disabled', false);
+				$(id).removeClass("ui-btn-a").addClass("ui-btn-b");
+				$(id).removeClass("ui-icon-lock").addClass("ui-icon-unlock-alt");
 			}
 		}
 		
