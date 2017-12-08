@@ -173,8 +173,8 @@ var appConstants = {
 //	uploadFileURL: "http://10.107.16.86:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile", //EHU WIFI
 //	uploadFileURL: "http://192.168.0.38:8080/TTA1718_LS-EX_09-10S/rest/School/uploadFile" //HOME
 	//serverURL : "http://192.168.0.19:8080/GraphiAppServer/",
-	//serverURL : "http://192.168.0.18:8080/GraphiAppServer/",
-	serverURL : "http://10.109.242.126:8080/GraphiAppServer/",
+	serverURL : "http://192.168.0.14:8080/GraphiAppServer/",
+	//serverURL : "http://10.109.242.126:8080/GraphiAppServer/",
 	//serverURL : "http://10.109.179.85:8080/GraphiAppServer/",
 
 	get ejerciciosNivel1URL () {
