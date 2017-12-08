@@ -527,6 +527,7 @@
 					success: function (result)
 					{
 						alert(result);
+						$("#regForm")[0].reset();
 						location.href="#loginPage";
 					},
 					error: function (result) {
@@ -548,6 +549,7 @@
 						dataType: "text",
 						success: function(result){
 							alert(result);
+							$("#regForm")[0].reset();
 							location.href="#loginPage";
 						},
 						error: function(result){
@@ -585,6 +587,7 @@
 			$.get(appConstants.loginUserURL,data, function(result){
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
+						$("#loginForm")[0].reset();
 						location.href="#userHome";
 						var data_stored = localStorage.getItem("data_"+data.nickname);
 						if (data_stored != null)
@@ -604,6 +607,7 @@
 				else{
 					if(document.getElementById("radio-alumno-login-2").checked){
 						if(result=="0-Docente"){
+							$("#loginForm")[0].reset();
 							location.href="#homePage";
 							var data_stored = localStorage.getItem("data_"+data.nickname);
 							if (data_stored != null)
