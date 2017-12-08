@@ -587,7 +587,6 @@
 			$.get(appConstants.loginUserURL,data, function(result){
 				if(document.getElementById("radio-alumno-login-1").checked){
 					if(result=="0-Alumno"){
-						$("#loginForm")[0].reset();
 						location.href="#userHome";
 						var data_stored = localStorage.getItem("data_"+data.nickname);
 						if (data_stored != null)
@@ -599,6 +598,7 @@
 							studentSessionConstants.nickname = document.getElementById("nnUser").value;
 							localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 						}
+						
 					}
 					else{
 						alert("Tipo de usuario incorrecto");
@@ -607,7 +607,6 @@
 				else{
 					if(document.getElementById("radio-alumno-login-2").checked){
 						if(result=="0-Docente"){
-							$("#loginForm")[0].reset();
 							location.href="#homePage";
 							var data_stored = localStorage.getItem("data_"+data.nickname);
 							if (data_stored != null)
@@ -640,6 +639,7 @@
 			localStorage.setItem("data_"+login,login);
 			localStorage.removeItem("lastLoginUsed");
 			$.mobile.navigate("#loginPage");
+			$("#logForm")[0].reset();
 		}
 		
 		function addClass(){
