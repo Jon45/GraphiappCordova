@@ -576,6 +576,7 @@
 		
 		function mostrarClases(){
 			var clases = [];
+			$("#listClasses").empty();
 			$.getJSON(appConstants.getClassURL,{nickname: teacherSessionConstants.nickname},
 					function(data){
 				clases = data.listaClases;
