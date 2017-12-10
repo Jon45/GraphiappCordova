@@ -75,7 +75,7 @@ var nivel5 = {
 		{frase1 : "La bandera ondea en su ***", frase2 : "carmen lleva a María *** el colegio",palabra1 : "asta",palabra2 : "hasta", pin : 20171015},
 		{frase1 : "En la pared colocaron un *** nuevo", frase2 : "José *** que perdonar a su hermano",palabra1 : "tubo",palabra2 : "tuvo", pin : 20171015},
 		{frase1 : "Una *** gigante se acercó a la playa", frase2 : "EL niño saludo con un ``***´´ a su amiga.",palabra1 : "ola",palabra2 : "hola", pin : 20171015},
-		{frase1 : "En las comidas el niño *** agua", frase2 : "el bebé llora cada vez que quiere comer",palabra1 : "bebe",palabra2 : "bebé", pin : 20171014},
+		{frase1 : "En las comidas el niño *** agua", frase2 : "el *** llora cada vez que quiere comer",palabra1 : "bebe",palabra2 : "bebé", pin : 20171014},
 		{frase1 : "La partida de cartas se gana con el *** de oros", frase2 : "*** de terminar los deberes para ir al parque",palabra1 : "as",palabra2 : "Has", pin : 20171014 },
 		{frase1 : "mi hermana heredó todos los *** de mi tio", frase2 : "¿Mañana *** a la comida familiar?",palabra1 : "Bienes",palabra2 : "Vienes", pin : 20171014},
 		{frase1 : "Estoy *** con mi mejor amiga", frase2 : "Yo *** la plastilina antes de realizar figuras",palabra1 : "hablando",palabra2 : "ablando", pin : 20171014},
