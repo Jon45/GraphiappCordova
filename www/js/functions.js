@@ -863,7 +863,7 @@
 			$("#level5Form")[0].reset();
 		};
 		function addN8(){
-			var nuevoEjercicio={palabra: document.getElementById("palabra1").value, acento: 0, pin: getFechaInt()};
+			var nuevoEjercicio={palabra: document.getElementById("pEj8").value, acento: 0, pin: getFechaInt()};
 			if(document.getElementById("radio1").checked){
 				nuevoEjercicio.acento = 1;
 			}
