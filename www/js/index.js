@@ -221,3 +221,7 @@ $("#perfil-atras").click(function(){
 $("#atras-clase-virtual").click(function(){
 	$.mobile.navigate("#modosJuego");
 });
+$("#atras-video-ayuda").click(function(){
+	$("#video-ayuda").get(0).pause();
+	$.mobile.navigate("#userHome");
+});
