@@ -804,7 +804,7 @@
 		};
 		function getFechaInt(){
 			var d = new Date(); 
-			var fecha = [d.getFullYear(), d.getMonth(), d.getDate(),d.getHours()];
+			var fecha = [d.getFullYear(), d.getMonth()+1, d.getDate(),d.getHours()];
 			var fechastring = fecha.join("");
 			var fechaint = parseInt(fechastring);
 			return fechaint;
