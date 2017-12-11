@@ -218,3 +218,6 @@ $(".niveles-atras").click(function(){
 $("#perfil-atras").click(function(){
 	parent.history.back();
 });
+$("#atras-clase-virtual").click(function(){
+	$.mobile.navigate("#modosJuego");
+});

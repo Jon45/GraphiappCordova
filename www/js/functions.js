@@ -36,6 +36,8 @@
 				},
 				complete: function(){
 					alert("Terminado modo clase virtual");
+					$(".niveles-atras").prop("disabled",false);
+					
 					$.mobile.navigate("#claseVirtual");
 				}
 			});
@@ -427,7 +429,11 @@
 					{
 						nivel8.palabras.push(palabra);
 					}
-				})
+				});
+				for (var i=nivel8.palabras.length;i<10;i++)
+				{
+					$("#nivel8-palabra-"+(i+1)).css("visibility","hidden");
+				}
 			}
 			
 			nivel8.palabras.forEach(function(palabra,index)
