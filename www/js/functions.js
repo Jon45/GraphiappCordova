@@ -655,7 +655,7 @@
 		
 		function addClass(){
 			var d = new Date(); //Vamos a configurar la fecha para metérsela a la clase
-			var fecha = [d.getFullYear(), d.getMonth(), d.getDate(), d.getHours()];
+			var fecha = [d.getFullYear(), d.getMonth()+1, d.getDate(), d.getHours()];
 			var fechastring = fecha.join("");
 			
 			var fechaint = parseInt(fechastring);
