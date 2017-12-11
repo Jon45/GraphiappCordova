@@ -18,9 +18,9 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="media-src 'self' http://u017633.ehu.eus:28080 http://192.168.0.14:8080 http://82.130.170.210:8080;
-															img-src 'self' http://u017633.ehu.eus:28080 http://192.168.0.14:8080 http://82.130.170.210:8080 http://code.jquery.com data:;
-															connect-src 'self' http://u017633.ehu.eus:28080 http://192.168.0.14:8080 http://82.130.170.210:8080 'unsafe-inline' 'unsafe-eval';"/>
+        <meta http-equiv="Content-Security-Policy" content="media-src 'self' http://u017633.ehu.eus:28080 http://192.168.0.14:8080 http://82.130.170.210:8080 http://192.168.0.15:8080 https://dl.dropboxusercontent.com;
+															img-src 'self' http://u017633.ehu.eus:28080 http://192.168.0.14:8080 http://82.130.170.210:8080 http://192.168.0.15:8080 http://code.jquery.com data:;
+															connect-src 'self' http://u017633.ehu.eus:28080 http://192.168.0.14:8080 http://82.130.170.210:8080 http://192.168.0.15:8080 'unsafe-inline' 'unsafe-eval';"/>
        <!--  <meta http-equiv="Content-Security-Policy" content="media-src 'self' http://10.109.179.85:8080;
         													connect-src 'self' http://10.109.179.85:8080 'unsafe-inline' 'unsafe-eval';"/>  -->      
         <meta name="format-detection" content="telephone=no">
@@ -293,7 +293,7 @@
 			</div>
 			<div data-role="content">
 				<video id="video-ayuda" controls="controls" width="80%">
-					<source src="video/ayuda.mp4" type="video/mp4"/>
+					<source src="https://dl.dropboxusercontent.com/s/e94hhon3f6dr6tb/Vídeo%20de%20ayuda%20de%20GraphiApp.mp4?dl=0" type="video/mp4"/>
 				</video>
 				<a href="#userHome" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-l">ATRÁS</a>
 			</div>
