@@ -214,4 +214,7 @@ $("#botonNivel8").click(function(){
 
 $(".niveles-atras").click(function(){
 	$.mobile.navigate("#pantallas");
-})
+});
+$("#perfil-atras").click(function(){
+	parent.history.back();
+});
