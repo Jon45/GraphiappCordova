@@ -31,15 +31,16 @@ var app = {
             var currentLogin=JSON.parse(lastLoginUser);
             if(currentLogin.tipo==1){
             	studentSessionConstants = currentLogin;
-            	location.href="#userHome";
+            	$.mobile.navigate("#userHome");
             }
             else{
             	teacherSessionConstants = currentLogin;
-            	location.href="#homePage";
+            	$.mobile.navigate("#homePage");
             	mostrarClases();
             }
         }
         cargarDatosNiveles();
+        navigator.splashscreen.hide();
     }
 };
 
