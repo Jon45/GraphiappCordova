@@ -37,7 +37,7 @@
 				complete: function(){
 					alert("Terminado modo clase virtual");
 					$(".niveles-atras").prop("disabled",false);
-					
+					$('#input-pin').val('');
 					$.mobile.navigate("#claseVirtual");
 				}
 			});
@@ -615,6 +615,7 @@
 							studentSessionConstants.nickname = document.getElementById("nnUser").value;
 							localStorage.setItem("lastLoginUsed", JSON.stringify(studentSessionConstants));
 						}
+						$('#input-pin').val('');
 						
 					}
 					else{
