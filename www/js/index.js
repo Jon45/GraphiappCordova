@@ -11,7 +11,14 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.addEventListener("backbutton", function(e) {
-        	e.preventDefault();
+        	if (confirm("¿Deseas salir de la aplicación?")==true)
+    		{
+                navigator.app.exitApp();
+    		}
+        	else
+    		{
+        		e.preventDefault();
+    		}
         }, false)
     },
     // deviceready Event Handler
